@@ -1,0 +1,14 @@
+How to setup UniFi Video on Debian
+1. Install the latest version of Debian with only SSH server selected
+
+Update the system if needed
+2. apt-get update
+3. apt-get upgrade
+
+Install sudo and add user to sudo
+4. apt-get install sudo
+5. usermod -aG sudo (username)
+
+Install and configure unattended-upgrades
+6. apt-get install unattended-upgrades
+7. 

@@ -15,10 +15,13 @@ Install unattended-upgrades
 Install ca-certificates
 7. apt-get install ca-certificates
 
+Install prerequisites
+8. apt-get install mongodb mongodb-server openjdk-8-jre-headless jsvc
+
 Install UniFi Video
 Go to the temp directory
-8. cd /tmp/
+9. cd /tmp/
 Download the installation UniFi Video deb file
-9. wget (deb direct url)
+10. wget (deb direct url)
 Install the UniFi Video deb file
-10. dpkg -i (deb file)
+11. dpkg -i (deb file)

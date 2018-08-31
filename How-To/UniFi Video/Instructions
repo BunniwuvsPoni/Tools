@@ -18,6 +18,7 @@ Install ca-certificates
 Install UniFi Video
 Go to the temp directory
 8. cd /tmp/
-Download the installation deb file
+Download the installation UniFi Video deb file
 9. wget (deb direct url)
-10. 
+Install the UniFi Video deb file
+10. dpkg -i (deb file)

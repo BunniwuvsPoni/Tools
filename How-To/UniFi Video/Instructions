@@ -9,6 +9,12 @@ Install sudo and add user to sudo
 4. apt-get install sudo
 5. usermod -aG sudo (username)
 
-Install and configure unattended-upgrades
+Install unattended-upgrades
 6. apt-get install unattended-upgrades
-7. 
+
+Install UniFi Video
+Go to the temp directory
+7. cd /tmp/
+Download the installation deb file
+8. wget (deb direct url)
+9. 

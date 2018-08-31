@@ -12,9 +12,12 @@ Install sudo and add user to sudo
 Install unattended-upgrades
 6. apt-get install unattended-upgrades
 
+Install ca-certificates
+7. apt-get install ca-certificates
+
 Install UniFi Video
 Go to the temp directory
-7. cd /tmp/
+8. cd /tmp/
 Download the installation deb file
-8. wget (deb direct url)
-9. 
+9. wget (deb direct url)
+10. 

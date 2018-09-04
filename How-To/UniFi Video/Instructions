@@ -19,7 +19,8 @@ Install prerequisites
 8. apt-get install mongodb mongodb-server openjdk-8-jre-headless jsvc
 
 Setup static IP
-9. edit /etc/network/interfaces to the following
+9. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
+10. edit /etc/network/interfaces.d/eth0 to the following
   ---
   iface eth0 inet static
   address 192.168.x.x

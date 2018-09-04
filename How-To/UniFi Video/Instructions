@@ -18,10 +18,19 @@ Install ca-certificates
 Install prerequisites
 8. apt-get install mongodb mongodb-server openjdk-8-jre-headless jsvc
 
+Setup static IP
+9. edit /etc/network/interfaces to the following
+  ---
+  iface eth0 inet static
+  address 192.168.x.x
+  netmask 255.255.255.0
+  gateway 192.168.x.x
+  ---
+
 Install UniFi Video
 Go to the temp directory
-9. cd /tmp/
+. cd /tmp/
 Download the installation UniFi Video deb file
-10. wget (deb direct url)
+. wget (deb direct url)
 Install the UniFi Video deb file
-11. dpkg -i (deb file)
+. dpkg -i (deb file)

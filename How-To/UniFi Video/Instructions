@@ -30,8 +30,8 @@ Setup static IP
 
 Install UniFi Video
 Go to the temp directory
-. cd /tmp/
+11. cd /tmp/
 Download the installation UniFi Video deb file
-. wget (deb direct url)
+12. wget (deb direct url)
 Install the UniFi Video deb file
-. dpkg -i (deb file)
+13. dpkg -i (deb file)

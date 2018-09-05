@@ -32,7 +32,7 @@ Install UniFi Video
 Go to the temp directory
 11. cd /tmp/
 Download the installation UniFi Video deb file
-12. wget (deb direct url)
+12. wget (deb direct url) [Found on UBNT's website: https://www.ubnt.com/download/unifi-video]
 Install the UniFi Video deb file
 13. dpkg -i (deb file)
 Optional, fixes dependency issues

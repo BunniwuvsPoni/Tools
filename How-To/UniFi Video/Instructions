@@ -1,5 +1,5 @@
 How to setup UniFi Video on Debian
-1. Install the latest version of Debian with only SSH server selected
+1. Install the latest version of Debian with only SSH server selected and ideally with LVM configured (this will allow you to adjust the storage later on if desired)
 
 Update the system if needed
 2. apt-get update

@@ -39,3 +39,5 @@ Install the UniFi Video deb file
 13. dpkg -i (deb file)
 Optional, fixes dependency issues
 14. apt-get -f install
+
+Restart Debian to refresh the platform

@@ -9,3 +9,9 @@ Command:
 Result:
   fdisk is a partition table manipulator for Linux
   -l list the partition tables for the specified devices and then exit
+
+Command:
+  lvmdiskscan
+Result:
+  Scans the system for block devices that LVM can see and manage
+

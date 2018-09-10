@@ -1,0 +1,10 @@
+Command:
+  df -h
+Result:
+  The df command reports the amount of available disk space being used by file systems
+  -h returns human readable results
+
+Command:
+  fdisk -l
+Result:
+  

@@ -1,1 +1,11 @@
+Command:
+  df -h
+Result:
+  The df command reports the amount of available disk space being used by file systems
+  -h is used to make the results human readable
 
+Command:
+  fdisk -l
+Result:
+  fdisk is a partition table manipulator for Linux
+  -l list the partition tables for the specified devices and then exit

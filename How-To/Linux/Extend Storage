@@ -1,3 +1,5 @@
+Assuming that the linux installation was configured with LVM
+
 Command:
   df -h
 Result:

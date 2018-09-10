@@ -1,5 +1,15 @@
 Assuming that the linux installation was configured with LVM
 
+To expand your storage
+1. Expand the storage on your VM/Hypervisor of choice
+
+2. Boot into a live linux OS of your choice (I am using Ubuntu)
+
+3. Open gparted
+
+
+-----
+Resources
 Command:
   df -h
 Result:

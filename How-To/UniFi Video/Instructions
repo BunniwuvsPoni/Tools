@@ -11,8 +11,8 @@ Install sudo and add user to sudo
 4. apt-get install sudo
 5. usermod -aG sudo (username)
 
-Install unattended-upgrades
-6. apt-get install unattended-upgrades
+Install automatic updates
+6. apt-get install unattended-upgrades update-notifier-common
 
 Install ca-certificates
 7. apt-get install ca-certificates

@@ -13,11 +13,11 @@ $desktoppath = [Environment]::GetFolderPath("Desktop") + "\SharePoint Delete Log
 # Confirmation of username to be deleted
 $user = "i:0#.w|ndeb\$name"
 
-echo "Please confirm that $user is the user you wish to delete from all SharePoint environments. (y/n)" | Tee-Object -FilePath $desktoppath -Append
+echo "Please confirm that ($user) is the user you wish to delete from all SharePoint environments. (y/n)" | Tee-Object -FilePath $desktoppath -Append
 
 $readhost = Read-Host " ( y / n) "
 
-if($readhost = y){
+if($readhost -eq 'y'){
 
     # Log selection
     echo "User accepted $user, continuing function." | Tee-Object -FilePath $desktoppath -Append

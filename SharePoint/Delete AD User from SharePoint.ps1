@@ -29,11 +29,11 @@ if($readhost -eq 'y'){
     
         date | Tee-Object -FilePath $desktoppath -Append
 
-        echo $url | Tee-Object -FilePath $desktoppath -Append
-
-        echo $user | Tee-Object -FilePath $desktoppath -Append
+        echo "Deleting $user from $url" | Tee-Object -FilePath $desktoppath -Append
 
         Remove-SPUser -Identity $user - Web $url
+
+        echo "Deleted $user from $url" | Tee-Object -FilePath $desktoppath -Append
     }
 
 } else {

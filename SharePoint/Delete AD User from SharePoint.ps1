@@ -31,7 +31,7 @@ if($readhost -eq 'y'){
 
         echo "Deleting $user from $url" | Tee-Object -FilePath $desktoppath -Append
 
-        Remove-SPUser -Identity $user -Web $url
+        Remove-SPUser -Identity $user -Web $url -Confirm:$false
 
         echo "Deleted $user from $url" | Tee-Object -FilePath $desktoppath -Append
     }

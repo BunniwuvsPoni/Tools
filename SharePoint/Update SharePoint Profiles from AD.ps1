@@ -5,6 +5,9 @@
 # Log file path
 $desktoppath = [Environment]::GetFolderPath("Desktop") + "\SharePoint Sync Log.txt"
 
+# Connects to the local SharePoint server to retrieve url list
+$webapp = Get-SPWebApplication
+
 foreach ($url in $webapp.sites.url){
     
     date | Tee-Object -FilePath $desktoppath -Append

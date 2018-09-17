@@ -1,6 +1,6 @@
 # User to be removed from SharePoint environment
 param(
-    [Parameter(Mandatory=$true)][string]name
+    [Parameter(Mandatory=$true)][string]$name
 )
 
 Add-PSSnapin Microsoft.Sharepoint.Powershell

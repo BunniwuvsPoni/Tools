@@ -16,11 +16,14 @@ foreach ($url in $webapp.sites.url){
 
     # Display the existing Email
     $users = Get-SPUser -Web $url
+    echo $url | Tee-Object -FilePath $desktoppath -Append
     $users | Select UserLogin,DisplayName,Email | Tee-Object -FilePath $desktoppath -Append
 
 
     foreach ($user in $users) {
 
+        echo $url | Tee-Object -FilePath $desktoppath -Append
+        
         echo $user.UserLogin | Tee-Object -FilePath $desktoppath -Append
 
         if($user.UserLogin.StartsWith("i")) {
@@ -34,5 +37,6 @@ foreach ($url in $webapp.sites.url){
 
     # Display updated email
     $users = Get-SPUser -Web $url
+    echo $url | Tee-Object -FilePath $desktoppath -Append
     $users | Select UserLogin,DisplayName,Email | Tee-Object -FilePath $desktoppath -Append
 }

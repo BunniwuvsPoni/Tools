@@ -7,15 +7,15 @@ Add-PSSnapin Microsoft.Sharepoint.Powershell
 
 # Note: You may have to update permissions in SharePoint Central Administrations for the update to be accepted, this script runs as an Admin of the SharePoint environment from the Sharepoint Server.
 
+# Log file path
+$desktoppath = [Environment]::GetFolderPath("Desktop") + "\SharePoint Delete Log.txt"
+
 # Confirmation of username to be deleted
 $user = "i:0#.w|ndeb\$name"
 
 echo "Please confirm that $user is the user you wish to delete from all SharePoint environments. (y/n)" | Tee-Object -FilePath $desktoppath -Append
 
 $readhost = Read-Host " ( y / n) "
-
-# Log file path
-$desktoppath = [Environment]::GetFolderPath("Desktop") + "\SharePoint Delete Log.txt"
 
 if($readhost = y){
 

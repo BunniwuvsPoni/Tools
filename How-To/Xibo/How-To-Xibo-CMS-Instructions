@@ -1,4 +1,4 @@
-How to setup Xibo on Debian
+How to setup Xibo CMS on Debian
 1. Install the latest version of Debian
     - Select only SSH server
     - Ideally configured with LVM (this will allow you to adjust the storage size later, especially useful in a VM/Hypervisor scenario)

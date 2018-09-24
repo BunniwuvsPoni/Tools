@@ -6,11 +6,12 @@ How to setup Xibo CMS on Debian
 Update the system if needed
 2. apt-get update
 3. apt-get upgrade
+4. apt-get dist-upgrade
 
 Install sudo and add user to sudo
-4. apt-get install sudo
-5. usermod -aG sudo (username)
+5. apt-get install sudo
+6. usermod -aG sudo (username)
 
 Install automatic updates
-6. apt-get install unattended-upgrades
-7. set the line "Unattended-Upgrade::Automatic-Reboot "true";" in /etc/apt/apt.conf.d/50unattended-upgrades to enable automatic reboots
+7. apt-get install unattended-upgrades
+8. set the line "Unattended-Upgrade::Automatic-Reboot "true";" in /etc/apt/apt.conf.d/50unattended-upgrades to enable automatic reboots

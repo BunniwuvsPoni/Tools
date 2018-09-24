@@ -6,24 +6,25 @@ How to setup UniFi Video on Debian
 Update the system if needed
 2. apt-get update
 3. apt-get upgrade
+4. apt-get dist-upgrade
 
 Install sudo and add user to sudo
-4. apt-get install sudo
-5. usermod -aG sudo (username)
+5. apt-get install sudo
+6. usermod -aG sudo (username)
 
 Install automatic updates
-6. apt-get install unattended-upgrades
-7. set the line "Unattended-Upgrade::Automatic-Reboot "true";" in /etc/apt/apt.conf.d/50unattended-upgrades to enable automatic reboots
+7. apt-get install unattended-upgrades
+8. set the line "Unattended-Upgrade::Automatic-Reboot "true";" in /etc/apt/apt.conf.d/50unattended-upgrades to enable automatic reboots
 
 Install ca-certificates
-8. apt-get install ca-certificates
+9. apt-get install ca-certificates
 
 Install prerequisites
-9. apt-get install mongodb mongodb-server openjdk-8-jre-headless jsvc psmisc
+10. apt-get install mongodb mongodb-server openjdk-8-jre-headless jsvc psmisc
 
 Setup static IP
-10. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
-11. edit /etc/network/interfaces.d/eth0 to the following
+11. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
+12. edit /etc/network/interfaces.d/eth0 to the following
   ---
   iface eth0 inet static
   address 192.168.x.x
@@ -33,13 +34,13 @@ Setup static IP
 
 Install UniFi Video
 Go to the temp directory
-12. cd /tmp/
+13. cd /tmp/
 Download the installation UniFi Video deb file
-13. wget (deb direct url) [Found on UBNT's website: https://www.ubnt.com/download/unifi-video]
+14. wget (deb direct url) [Found on UBNT's website: https://www.ubnt.com/download/unifi-video]
 Install the UniFi Video deb file
-14. dpkg -i (deb file)
+15. dpkg -i (deb file)
 Optional, fixes dependency issues
-15. apt-get -f install
+16. apt-get -f install
 
 Reboot the system
-16. Restart Debian to refresh the platform
+17. Restart Debian to refresh the platform

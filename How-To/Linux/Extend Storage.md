@@ -1,6 +1,6 @@
-Assuming that the hard drive on your Linux installation was configured with LVM
+# Assuming that the hard drive on your Linux installation was configured with LVM
 
-To expand your storage
+## To expand your storage
 1. Expand the storage on the disk in your VM/Hypervisor manager
 
 2. Boot into a live Linux OS of your choice (I am using Ubuntu)
@@ -34,9 +34,7 @@ To expand your storage
 
 15. confirm the partition has increased size using df -h
 
-
------
-Resources
+## Resources
 Command:
   df -h
 Result:

@@ -27,12 +27,12 @@
 ## Setup static IP
 11. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
 12. edit /etc/network/interfaces.d/eth0 to the following
-  ---
-  iface eth0 inet static
-  address 192.168.x.x
-  netmask 255.255.255.0
-  gateway 192.168.x.x
-  ---
+```
+iface eth0 inet static
+address 192.168.x.x
+netmask 255.255.255.0
+gateway 192.168.x.x
+```
 
 ## Install UniFi Video
 Go to the temp directory

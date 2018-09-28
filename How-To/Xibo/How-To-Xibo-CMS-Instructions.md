@@ -18,6 +18,13 @@
 7. apt-get install unattended-upgrades
 8. set the line "Unattended-Upgrade::Automatic-Reboot "true";" in /etc/apt/apt.conf.d/50unattended-upgrades to enable automatic reboots
 
+## Install Docker prerequisites
+9. Install packages to allow apt to use a repository over HTTPS
+    - apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+10. Add Docker's offical GPG key
+    - curl -fsSL https://download.docker.com/linux/debian/gpg
+
+
 ## Setup static IP
 x. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
 x. edit /etc/network/interfaces.d/eth0 to the following

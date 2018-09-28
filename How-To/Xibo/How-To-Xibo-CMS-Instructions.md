@@ -46,7 +46,7 @@
 20. Copy the config template
     - cp config.env.template config.env
 21. Within the config.env file, input a password into "MYSQL_PASSWORD=" (Random password generator: https://www.random.org/passwords/?num=1&len=16&format=plain&rnd=new)
-22. Start the Docker Container
+22. Start the Docker Container (Work in progress)
     - docker-compose up -d
 
 ## Setup static IP

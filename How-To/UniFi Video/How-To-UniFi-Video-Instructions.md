@@ -35,14 +35,14 @@ gateway 192.168.x.x
 ```
 
 ## Install UniFi Video
-Go to the temp directory
-13. cd /tmp/
-Download the installation UniFi Video deb file
-14. wget (deb direct url) [Found on UBNT's website: https://www.ubnt.com/download/unifi-video]
-Install the UniFi Video deb file
-15. dpkg -i (deb file)
-Optional, fixes dependency issues
-16. apt-get -f install
+13. Go to the temp directory
+    - cd /tmp/
+14. Download the installation UniFi Video deb file
+    - wget (deb direct url) [Found on UBNT's website: https://www.ubnt.com/download/unifi-video]
+15. Install the UniFi Video deb file
+    - dpkg -i (deb file)
+16. Optional, fixes dependency issues
+    - apt-get -f install
 
 ## Reboot the system
 17. Restart Debian to refresh the platform

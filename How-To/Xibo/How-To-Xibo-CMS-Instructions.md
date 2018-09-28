@@ -37,6 +37,10 @@
     - cd /tmp/
 16. Download the installation Xibo .tar.gz file
     - wget (deb direct url) [Found on Xibo's website: https://xibo.org.uk/manual/en/install_docker_linux.html]
+17. Create Xibo directory in /opt/
+    - mkdir /opt/Xibo
+18. Extract Xibo files from archive
+    - tar -xf file_name.tar.gz -C /opt/Xibo
 
 ## Setup static IP
 x. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces

@@ -22,7 +22,7 @@
 9. Install packages to allow apt to use a repository over HTTPS
     - apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 10. Add Docker's offical GPG key
-    - curl -fsSL https://download.docker.com/linux/debian/gpg
+    - curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
 
 ## Setup static IP

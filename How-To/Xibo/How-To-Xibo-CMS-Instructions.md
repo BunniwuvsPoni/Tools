@@ -23,6 +23,8 @@
     - apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 10. Add Docker's offical GPG key
     - curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+11. Verify that you now have the key
+    - sudo apt-key fingerprint 0EBFCD88
 
 
 ## Setup static IP

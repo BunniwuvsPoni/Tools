@@ -45,7 +45,9 @@
     - cd /opt/Xibo/(Xibo version)/
 20. Copy the config template
     - cp config.env.template config.env
-21. 
+21. Within the config.env file, input a password into "MYSQL_PASSWORD=" (Random password generator: https://www.random.org/passwords/?num=1&len=16&format=plain&rnd=new)
+22. Start the Docker Container
+    - docker-compose up -d
 
 ## Setup static IP
 x. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces

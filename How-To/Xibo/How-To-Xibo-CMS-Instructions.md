@@ -41,6 +41,11 @@
     - mkdir /opt/Xibo
 18. Extract Xibo files from archive
     - tar -xf file_name.tar.gz -C /opt/Xibo
+19. Go to your extracted file location
+    - cd /opt/Xibo/(Xibo version)/
+20. Copy the config template
+    - cp config.env.template config.env
+21. 
 
 ## Setup static IP
 x. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces

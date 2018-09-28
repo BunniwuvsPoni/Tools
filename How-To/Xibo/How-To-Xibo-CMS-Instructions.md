@@ -18,7 +18,7 @@
 7. apt-get install unattended-upgrades
 8. set the line "Unattended-Upgrade::Automatic-Reboot "true";" in /etc/apt/apt.conf.d/50unattended-upgrades to enable automatic reboots
 
-## Install Docker prerequisites
+## Install Docker - Prerequisite for running Xibo
 9. Install packages to allow apt to use a repository over HTTPS
     - apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 10. Add Docker's offical GPG key

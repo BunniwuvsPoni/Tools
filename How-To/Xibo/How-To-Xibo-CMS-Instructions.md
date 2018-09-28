@@ -25,7 +25,8 @@
     - curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 11. Verify that you now have the key
     - sudo apt-key fingerprint 0EBFCD88
-
+12. Setup the stable repository
+    - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 
 ## Setup static IP
 x. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces

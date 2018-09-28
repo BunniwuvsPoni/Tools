@@ -32,6 +32,12 @@
 14. Install Docker CE
     - apt-get install docker-ce
 
+## Install Xibo CMS
+15. Go to the temp directory
+    - cd /tmp/
+16. Download the installation Xibo .tar.gz file
+    - wget (deb direct url) [Found on Xibo's website: https://xibo.org.uk/manual/en/install_docker_linux.html]
+
 ## Setup static IP
 x. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
 x. edit /etc/network/interfaces.d/eth0 to the following

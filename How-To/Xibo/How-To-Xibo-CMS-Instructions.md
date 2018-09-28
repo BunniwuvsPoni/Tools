@@ -17,3 +17,13 @@
 ## Install automatic updates
 7. apt-get install unattended-upgrades
 8. set the line "Unattended-Upgrade::Automatic-Reboot "true";" in /etc/apt/apt.conf.d/50unattended-upgrades to enable automatic reboots
+
+## Setup static IP
+x. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
+x. edit /etc/network/interfaces.d/eth0 to the following
+```
+iface eth0 inet static
+address 192.168.x.x
+netmask 255.255.255.0
+gateway 192.168.x.x
+```

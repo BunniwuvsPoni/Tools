@@ -27,6 +27,8 @@
     - sudo apt-key fingerprint 0EBFCD88
 12. Setup the stable repository
     - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+13. apt-get update
+14. apt-get install docker-ce
 
 ## Setup static IP
 x. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces

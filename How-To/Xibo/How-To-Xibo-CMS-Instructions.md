@@ -65,3 +65,6 @@ gateway 192.168.x.x
 
 ## Reboot the system
 26. Restart Debian to refresh the platform
+
+## Note
+Remember to setup XMR in both Settings -> Display and Display Settings

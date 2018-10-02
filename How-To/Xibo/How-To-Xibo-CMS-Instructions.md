@@ -54,11 +54,14 @@
     - docker-compose up -d
 
 ## Setup static IP
-x. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
-x. edit /etc/network/interfaces.d/eth0 to the following
+24. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
+25. edit /etc/network/interfaces.d/eth0 to the following
 ```
 iface eth0 inet static
 address 192.168.x.x
 netmask 255.255.255.0
 gateway 192.168.x.x
 ```
+
+## Reboot the system
+26. Restart Debian to refresh the platform

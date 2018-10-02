@@ -31,11 +31,10 @@
     - apt-get update
 14. Install the latest Docker CE
     - apt-get install docker-ce
-15. Install the latest Docker-Compose
-    - https://github.com/docker/compose/releases
+15. Install the latest Docker-Compose (https://github.com/docker/compose/releases)
     - For version 1.22.0:
         - curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-        - chmod +x /usr/local/bin/docker-compose
+    - chmod +x /usr/local/bin/docker-compose
 
 ## Install Xibo CMS
 16. Go to the temp directory

@@ -29,10 +29,11 @@
     - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 13. Update package list
     - apt-get update
-14. Install Docker CE
+14. Install the latest Docker CE
     - apt-get install docker-ce
-15. Install Docker-Compose
-    - curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+15. Install the latest Docker-Compose
+    - https://github.com/docker/compose/releases
+    - For version 1.22.0: curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
     - chmod +x /usr/local/bin/docker-compose
 
 ## Install Xibo CMS

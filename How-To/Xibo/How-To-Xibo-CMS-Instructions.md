@@ -67,4 +67,4 @@ gateway 192.168.x.x
 26. Restart Debian to refresh the platform
 
 ## Note
-Remember to setup XMR in both Settings -> Display and Display Settings
+Remember to setup XMR in both Settings -> Display and Display Settings to allow "Collect Now" and "Screenshots"

@@ -31,22 +31,24 @@
     - apt-get update
 14. Install Docker CE
     - apt-get install docker-ce
+15. Install Docker-Compose
+    - apt-get install docker-compose
 
 ## Install Xibo CMS
-15. Go to the temp directory
+16. Go to the temp directory
     - cd /tmp/
-16. Download the installation Xibo .tar.gz file
+17. Download the installation Xibo .tar.gz file
     - wget (deb direct url) [Found on Xibo's website: https://xibo.org.uk/manual/en/install_docker_linux.html]
-17. Create Xibo directory in /opt/
+18. Create Xibo directory in /opt/
     - mkdir /opt/Xibo
-18. Extract Xibo files from archive
+19. Extract Xibo files from archive
     - tar -xf file_name.tar.gz -C /opt/Xibo
-19. Go to your extracted file location
+20. Go to your extracted file location
     - cd /opt/Xibo/(Xibo version)/
-20. Copy the config template
+21. Copy the config template
     - cp config.env.template config.env
-21. Within the config.env file, input a password into "MYSQL_PASSWORD=" (Random password generator: https://www.random.org/passwords/?num=1&len=16&format=plain&rnd=new)
-22. Start the Docker Container (Work in progress)
+22. Within the config.env file, input a password into "MYSQL_PASSWORD=" (Random password generator: https://www.random.org/passwords/?num=1&len=16&format=plain&rnd=new)
+23. Start the Docker Container (Work in progress)
     - docker-compose up -d
 
 ## Setup static IP

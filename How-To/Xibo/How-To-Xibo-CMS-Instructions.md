@@ -54,10 +54,10 @@
     - docker-compose up -d
 
 ## Setup static IP
-24. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
-25. edit /etc/network/interfaces.d/eth0 to the following
+24. remove the line "iface (eth0/ens192) inet dhcp" from /etc/network/interfaces
+25. edit /etc/network/interfaces.d/(eth0/ens192) to the following
 ```
-iface eth0 inet static
+iface (eth0/ens192) inet static
 address 192.168.x.x
 netmask 255.255.255.0
 gateway 192.168.x.x

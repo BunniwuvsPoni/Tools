@@ -25,7 +25,7 @@
 10. apt-get install mongodb mongodb-server openjdk-8-jre-headless jsvc psmisc
 
 ## Setup static IP
-11. remove the line "iface eth0 inet dhcp" from /etc/network/interfaces
+11. remove the line "iface (eth0/ens192) inet dhcp" from /etc/network/interfaces
 12. edit /etc/network/interfaces.d/(eth0/ens192) to the following
 ```
 iface (eth0/ens192) inet static

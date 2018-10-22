@@ -13,4 +13,4 @@ Current license information - detailed view
 - Dism /online /Get-TargetEditions
 
 ## Manual license activation
-- Dism /online /Set-Edition: (edition name) /AcceptEula /ProductKey:(xxxxx-xxxxx-xxxxx-xxxxx-xxxxx)
+- Dism /online /Set-Edition: (edition name) /AcceptEula /ProductKey: (xxxxx-xxxxx-xxxxx-xxxxx-xxxxx)

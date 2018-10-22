@@ -7,4 +7,4 @@ Current license information - detailed view
 - slmgr /dlv
 
 ## Manual license activation
-- Dism /online /Set-Edition: <edition name> /AcceptEula /ProductKey:<x>
+- Dism /online /Set-Edition: (edition name) /AcceptEula /ProductKey:(xxxxx-xxxxx-xxxxx-xxxxx-xxxxx)

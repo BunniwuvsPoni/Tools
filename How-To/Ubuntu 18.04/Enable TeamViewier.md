@@ -9,7 +9,7 @@ Configure /etc/gdm3/custom.conf to disable Wayland
 
 ## Setup xserver-xorg-video-dummy
 Install xserver-xorg-video-dummy with the following settings created in /usr/share/X11/xorg.conf.d/xorg.conf
----
+```
 Section "Device"
 Identifier "Configured Video Device"
 Driver "dummy"
@@ -31,4 +31,4 @@ Depth 24
 Modes "1024x800"
 EndSubSection
 EndSection
----
+```

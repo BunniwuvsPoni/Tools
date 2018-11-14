@@ -65,14 +65,14 @@ if ($option -eq "add") {
     Write-Host "Proceeding with script." -ForegroundColor Green
 
     # Delete existing permissions
-    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess
-    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights SendAs
+    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess -Confirm:$false
+    Remove-RecipientPermission -Identity $mailbox -Trustee $user -AccessRights SendAs -Confirm:$false
 
     Write-Host "Deleted permissions." -ForegroundColor Green
 
     # Add new permissions
     Add-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess -AutoMapping:$false
-    Add-RecipientPermission -Identity $mailbox -Trustee $user -AccessRights SendAs
+    Add-RecipientPermission -Identity $mailbox -Trustee $user -AccessRights SendAs -Confirm:$false
 
     Write-Host "New permissions added." -ForegroundColor Green
 
@@ -84,8 +84,8 @@ elseif ($option -eq "delete") {
     Write-Host "Proceeding with script." -ForegroundColor Green
 
     # Delete existing permissions
-    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess
-    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights SendAs
+    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess -Confirm:$false
+    Remove-RecipientPermission -Identity $mailbox -Trustee $user -AccessRights SendAs -Confirm:$false
 
     Write-Host "Deleted permissions." -ForegroundColor Green
 }

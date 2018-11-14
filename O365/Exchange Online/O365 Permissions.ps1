@@ -22,26 +22,6 @@ param(
     [Parameter(Mandatory=$true)][string]$mailbox
 )
 
-# Validating option, only add or delete are accepted
-if ($option -eq "add") {
-    Write-Host "Option selected:" $option
-    Write-Host "User specified:" $user
-    Write-Host "Mailbox specified:" $mailbox
-    Write-Host "Proceeding with script." -ForegroundColor Green
-}
-elseif ($option -eq "delete") {
-    Write-Host "Option selected:" $option
-    Write-Host "User specified:" $user
-    Write-Host "Mailbox specified:" $mailbox
-    Write-Host "Proceeding with script." -ForegroundColor Green
-}
-else {
-    Write-Host "Unaccepted option:" $option". " -ForegroundColor Red
-    Write-Host "Acceptable options are either 'add' or 'delete'. Exiting script."
-    Exit
-}
-
-
 # Connecting to O365
 # Note: ExecutionPolicy should be set to "RemoteSigned"
 
@@ -55,7 +35,7 @@ $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri ht
 Import-PSSession $Session -DisableNameChecking
 
 # Check if the user exists in O365
-$userCheck = Get-Mailbox -identity $user -ErrorAction SilentlyContinue | Format-List -Property PrimarySmtpAddress
+$userCheck = Get-Mailbox -Identity $user -ErrorAction SilentlyContinue | Format-List -Property PrimarySmtpAddress
 
 if ($userCheck) {
     Write-Host "User:" $user "exists. Proceeding with script." -ForegroundColor Green
@@ -66,7 +46,7 @@ else {
 }
 
 # Check if the mailbox exists in O365
-$mailboxCheck = Get-Mailbox -identity $mailbox -ErrorAction SilentlyContinue | Format-List -Property PrimarySmtpAddress
+$mailboxCheck = Get-Mailbox -Identity $mailbox -ErrorAction SilentlyContinue | Format-List -Property PrimarySmtpAddress
 
 if ($mailboxCheck) {
     Write-Host "Mailbox:" $mailbox "exists. Proceeding with script." -ForegroundColor Green
@@ -77,7 +57,45 @@ else {
 }
 
 # Add or Delete Full Access and Send As permissions
+# Validating option, only add or delete are accepted
+if ($option -eq "add") {
+    Write-Host "Option selected:" $option
+    Write-Host "User specified:" $user
+    Write-Host "Mailbox specified:" $mailbox
+    Write-Host "Proceeding with script." -ForegroundColor Green
 
+    # Delete existing permissions
+    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess
+    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights SendAs
+
+    Write-Host "Deleted permissions." -ForegroundColor Green
+
+    # Add new permissions
+    Add-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess -AutoMapping:$false
+    Add-MailboxPermission -Identity $mailbox -User $user -AccessRights SendAs -AutoMapping:$false
+
+    Write-Host "New permissions added." -ForegroundColor Green
+
+}
+elseif ($option -eq "delete") {
+    Write-Host "Option selected:" $option
+    Write-Host "User specified:" $user
+    Write-Host "Mailbox specified:" $mailbox
+    Write-Host "Proceeding with script." -ForegroundColor Green
+
+    # Delete existing permissions
+    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess
+    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights SendAs
+
+    Write-Host "Deleted permissions." -ForegroundColor Green
+}
+else {
+    Write-Host "Unaccepted option:" $option". " -ForegroundColor Red
+    Write-Host "Acceptable options are either 'add' or 'delete'. Exiting script."
+    Exit
+}
 
 # Remove the session
 Remove-PSSession $Session
+
+Write-Host "End of script."

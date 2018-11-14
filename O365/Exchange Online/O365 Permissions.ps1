@@ -72,7 +72,7 @@ if ($option -eq "add") {
 
     # Add new permissions
     Add-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess -AutoMapping:$false
-    Add-MailboxPermission -Identity $mailbox -User $user -AccessRights SendAs -AutoMapping:$false
+    Add-ADPermission -Identity $mailbox -User $user -ExtendedRights Send-As
 
     Write-Host "New permissions added." -ForegroundColor Green
 

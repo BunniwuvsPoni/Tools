@@ -29,6 +29,7 @@ param(
 $UserCredential = Get-Credential
 
 # Create the session
+# Please note, this method uses Basic authentication. This is not ideal because Basic authentication is very weak security wise...
 $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
 
 # Import the session

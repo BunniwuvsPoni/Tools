@@ -64,12 +64,6 @@ if ($option -eq "add") {
     Write-Host "Mailbox specified:" $mailbox
     Write-Host "Proceeding with script." -ForegroundColor Green
 
-    # Delete existing permissions
-    Remove-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess -Confirm:$false
-    Remove-RecipientPermission -Identity $mailbox -Trustee $user -AccessRights SendAs -Confirm:$false
-
-    Write-Host "Deleted permissions." -ForegroundColor Green
-
     # Add new permissions
     Add-MailboxPermission -Identity $mailbox -User $user -AccessRights FullAccess -AutoMapping:$false
     Add-RecipientPermission -Identity $mailbox -Trustee $user -AccessRights SendAs -Confirm:$false
@@ -98,5 +92,6 @@ else {
 # Remove the session
 Remove-PSSession $Session
 
-
+# End of script
 Write-Host "End of script."
+[void](Read-Host 'Press Enter to continue…')

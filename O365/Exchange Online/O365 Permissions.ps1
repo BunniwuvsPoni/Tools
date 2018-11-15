@@ -3,6 +3,7 @@
 Add/Remove Full Access/Send As permissions in O365
 .DESCRIPTION
 This script is designed to connect to O365 Outlook and add/delete user permissions: Full Access (no automapping) and Send As permissions on a mailbox
+Note: Exchange Online PowerShell Module must be installed on the computer running this script
 .PARAMETER option
 "add" or "delete" Full Access (no automapping) and Send As permissions
 .PARAMETER user
@@ -13,6 +14,7 @@ The "mailbox" you are applying the changes to
 & '.\O365 Permissions.ps1' -option add -user "<user>@<domain>.<tld>" -mailbox "<mailbox>@<domain>.<tld>"
 .LINK
 https://support.microsoft.com/en-ca/help/2646504/how-to-remove-automapping-for-a-shared-mailbox-in-office-365
+https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell?view=exchange-ps
 #>
 
 # Required parameters to process O365 permissions change
@@ -25,15 +27,15 @@ param(
 # Connecting to O365
 # Note: ExecutionPolicy should be set to "RemoteSigned"
 
-# Get the admin credential
-$UserCredential = Get-Credential
+# Note: Exchange Online PowerShell Module must be installed on the computer running this script
+# Find the local installation of Exchange Online PowerShell Module
+$targetdir = (dir $env:LOCALAPPDATA”\Apps\2.0\” -Include CreateExoPSSession.ps1,Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse | Group Directory | ? {$_.Count -eq 2}).Values | sort LastWriteTime -Descending | select -First 1 | select -ExpandProperty FullName
+
+#Import the local installation of Exchange Online PowerShell Module
+Import-Module $targetdir\CreateExoPSSession.ps1
 
 # Create the session
-# Please note, this method uses Basic authentication. This is not ideal because Basic authentication is very weak security wise...
-$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
-
-# Import the session
-Import-PSSession $Session -DisableNameChecking
+Connect-EXOPSSession
 
 # Check if the user exists in O365
 $userCheck = Get-Mailbox -Identity $user -ErrorAction SilentlyContinue | Format-List -Property PrimarySmtpAddress
@@ -90,8 +92,8 @@ else {
     Exit
 }
 
-# Remove the session
-Remove-PSSession $Session
+# Remove all PowerShell Sessions
+Get-PSSession | Remove-PSSession
 
 # End of script
 Write-Host "End of script."

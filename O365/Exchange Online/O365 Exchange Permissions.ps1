@@ -3,7 +3,8 @@
 Add/Remove Full Access/Send As permissions in O365
 .DESCRIPTION
 This script is designed to connect to O365 Outlook and add/delete user permissions: Full Access (no automapping) and Send As permissions on a mailbox
-Note: Exchange Online PowerShell Module must be installed on the computer running this script
+Note: Exchange Online PowerShell Module (installer only works via Internet Explorer) must be installed on the computer running this script
+Note: ExecutionPolicy should be set to "RemoteSigned"
 .PARAMETER option
 "add" or "delete" Full Access (no automapping) and Send As permissions
 .PARAMETER user
@@ -24,10 +25,9 @@ param(
     [Parameter(Mandatory=$true)][string]$mailbox
 )
 
-# Connecting to O365
-# Note: ExecutionPolicy should be set to "RemoteSigned"
+# Connecting to O365 Exchange Online PowerShell
 
-# Note: Exchange Online PowerShell Module must be installed on the computer running this script
+
 # Find the local installation of Exchange Online PowerShell Module
 $targetdir = (dir $env:LOCALAPPDATA”\Apps\2.0\” -Include CreateExoPSSession.ps1,Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse | Group Directory | ? {$_.Count -eq 2}).Values | sort LastWriteTime -Descending | select -First 1 | select -ExpandProperty FullName
 

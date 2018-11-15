@@ -31,8 +31,17 @@ param(
 # Find the local installation of Exchange Online PowerShell Module
 $targetdir = (dir $env:LOCALAPPDATA”\Apps\2.0\” -Include CreateExoPSSession.ps1,Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse | Group Directory | ? {$_.Count -eq 2}).Values | sort LastWriteTime -Descending | select -First 1 | select -ExpandProperty FullName
 
-#Import the local installation of Exchange Online PowerShell Module
-Import-Module $targetdir\CreateExoPSSession.ps1
+# Check if $targetdir exists
+if ($targetdir -eq $null) {
+    Write-Host "Exchange Online PowerShell Module is not installed, exiting script." -ForegroundColor Red
+    Exit
+}
+else {
+    Write-Host "Exchange Online PowerShell Module is installed, proceeding with script." -ForegroundColor Green
+    
+    # Import the local installation of Exchange Online PowerShell Module
+    Import-Module $targetdir\CreateExoPSSession.ps1
+}
 
 # Create the session
 Connect-EXOPSSession

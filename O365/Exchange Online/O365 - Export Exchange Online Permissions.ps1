@@ -51,9 +51,16 @@ $users = Get-Mailbox | Where-Object {$_.UserPrincipalName -like ("*" + $domain)}
 
 Write-Host "Processing may take a few minutes, please be patient..."
 
+# Progress bar
+$i = 0
+
 foreach ($user in $users) {
     
+    $i++
+
     Write-Host "Processing mailbox:" $user.Alias
+
+    Write-Progress -Activity "Processing mailboxs" -Status "Status:" -PercentComplete (($i / $users.count) * 100)
 
     # Export-csv: Full Access
     Get-Mailbox | Get-MailboxPermission -User $user.Alias | Export-Csv -Path ($desktoppath + "Full Access.csv") -Append

@@ -60,7 +60,7 @@ foreach ($user in $users) {
 
     Write-Host "Processing mailbox:" $user.Alias
 
-    Write-Progress -Activity "Processing mailboxs" -Status "Status:" -PercentComplete (($i / $users.count) * 100)
+    Write-Progress -Activity "Processing mailboxes" -Status "Status:" -PercentComplete (($i / $users.count) * 100)
 
     # Export-csv: Full Access
     Get-Mailbox | Get-MailboxPermission -User $user.Alias | Export-Csv -Path ($desktoppath + "Full Access.csv") -Append

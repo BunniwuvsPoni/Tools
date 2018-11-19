@@ -13,6 +13,7 @@ https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-
 
 # Connecting to O365 Exchange Online PowerShell
 
+
 # Find the local installation of Exchange Online PowerShell Module
 $targetdir = (dir $env:LOCALAPPDATA”\Apps\2.0\” -Include CreateExoPSSession.ps1,Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse | Group Directory | ? {$_.Count -eq 2}).Values | sort LastWriteTime -Descending | select -First 1 | select -ExpandProperty FullName
 
@@ -43,14 +44,14 @@ if (!(Test-Path $desktoppath)) {
 Get-Mailbox | Where-Object {$_.UserPrincipalName -like "*@<domain>.<tld>"} | Select-Object -property DisplayName,UserPrincipalName | Export-Csv -Path ($desktoppath + "Mailboxes.csv") -Append
 
 # Export Full Access and Send As permissions on a per user basis
-$users = Get-Mailbox | Where-Object {$_.UserPrincipalName -like "*@<domain>.<tld>"} | Select-Object -property DisplayName,UserPrincipalName
+$users = Get-Mailbox | Where-Object {$_.UserPrincipalName -like "*@<domain>.<tld>"} | Select-Object -property DisplayName,UserPrincipalName,Alias
 
 foreach ($user in $users) {
     # Export-csv: Full Access
-    Get-Mailbox | Get-MailboxPermission -User $user.UserPrincipalName | Export-Csv -Path ($desktoppath + "Full Access.csv") -Append
+    Get-Mailbox | Get-MailboxPermission -User $user.Alias | Export-Csv -Path ($desktoppath + "Full Access.csv") -Append
 
     # Export-csv: Send As
-    Get-Mailbox | Get-RecipientPermission -Trustee $user.UserPrincipalName | Export-Csv -Path ($desktoppath + "Send As.csv") -Append
+    Get-Mailbox | Get-RecipientPermission -Trustee $user.Alias | Export-Csv -Path ($desktoppath + "Send As.csv") -Append
 }
 
 

@@ -6,7 +6,7 @@ Creates 3 csv exports of Mailboxes, users with Full Access permissions, and user
 Note: Exchange Online PowerShell Module (installer only works via Internet Explorer) must be installed on the computer running this script
 Note: ExecutionPolicy should be set to "RemoteSigned"
 .EXAMPLE
-& '.\Exchange Online Permissions.ps1'
+& '.\O365 - Export Exchange Online Permissions.ps1'
 .LINK
 https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell?view=exchange-ps
 #>

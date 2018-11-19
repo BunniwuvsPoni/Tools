@@ -13,6 +13,7 @@ https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-
 
 # Connecting to O365 Exchange Online PowerShell
 
+
 # Find the local installation of Exchange Online PowerShell Module
 $targetdir = (dir $env:LOCALAPPDATA”\Apps\2.0\” -Include CreateExoPSSession.ps1,Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse | Group Directory | ? {$_.Count -eq 2}).Values | sort LastWriteTime -Descending | select -First 1 | select -ExpandProperty FullName
 
@@ -45,7 +46,12 @@ Get-Mailbox | Where-Object {$_.UserPrincipalName -like "*@<domain>.<tld>"} | Sel
 # Export Full Access and Send As permissions on a per user basis
 $users = Get-Mailbox | Where-Object {$_.UserPrincipalName -like "*@<domain>.<tld>"} | Select-Object -property DisplayName,UserPrincipalName,Alias
 
+Write-Host "Processing may take a few minutes, please be patient..."
+
 foreach ($user in $users) {
+    
+    Write-Host "Processing mailbox:" $user.Alias
+
     # Export-csv: Full Access
     Get-Mailbox | Get-MailboxPermission -User $user.Alias | Export-Csv -Path ($desktoppath + "Full Access.csv") -Append
 

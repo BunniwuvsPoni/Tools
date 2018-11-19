@@ -12,7 +12,7 @@ The "user" you are giving pemissions to or removing permissions from
 .PARAMETER mailbox
 The "mailbox" you are applying the changes to
 .EXAMPLE
-& '.\O365 Exchange Permissions.ps1' -option add -user "<user>@<domain>.<tld>" -mailbox "<mailbox>@<domain>.<tld>"
+& '.\O365 - Change Exchange Permissions.ps1' -option add -user "<user>@<domain>.<tld>" -mailbox "<mailbox>@<domain>.<tld>"
 .LINK
 https://support.microsoft.com/en-ca/help/2646504/how-to-remove-automapping-for-a-shared-mailbox-in-office-365
 https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell?view=exchange-ps

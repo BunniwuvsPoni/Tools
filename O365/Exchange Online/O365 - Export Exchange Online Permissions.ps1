@@ -13,7 +13,6 @@ https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-
 
 # Connecting to O365 Exchange Online PowerShell
 
-
 # Find the local installation of Exchange Online PowerShell Module
 $targetdir = (dir $env:LOCALAPPDATA”\Apps\2.0\” -Include CreateExoPSSession.ps1,Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse | Group Directory | ? {$_.Count -eq 2}).Values | sort LastWriteTime -Descending | select -First 1 | select -ExpandProperty FullName
 

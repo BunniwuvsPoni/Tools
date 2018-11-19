@@ -47,10 +47,10 @@ $users = Get-Mailbox | Where-Object {$_.UserPrincipalName -like "*@<domain>.<tld
 
 foreach ($user in $users) {
     # Export-csv: Full Access
-    Get-Mailbox | Get-MailboxPermission -User $user | Export-Csv -Path ($desktoppath + "Full Access.csv") -Append
+    Get-Mailbox | Get-MailboxPermission -User $user.UserPrincipalName | Export-Csv -Path ($desktoppath + "Full Access.csv") -Append
 
     # Export-csv: Send As
-    Get-Mailbox | Get-RecipientPermission -Trustee $user | Export-Csv -Path ($desktoppath + "Send As.csv") -Append
+    Get-Mailbox | Get-RecipientPermission -Trustee $user.UserPrincipalName | Export-Csv -Path ($desktoppath + "Send As.csv") -Append
 }
 
 

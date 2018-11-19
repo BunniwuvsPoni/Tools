@@ -11,8 +11,14 @@ Note: ExecutionPolicy should be set to "RemoteSigned"
 https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell?view=exchange-ps
 #>
 
-# Connecting to O365 Exchange Online PowerShell
 
+# Log file path
+$desktoppath = [Environment]::GetFolderPath("Desktop") + "\Exchange Reports\"
+
+# Set domain variable
+$domain = "@<domain>.<tld>"
+
+# Connecting to O365 Exchange Online PowerShell
 
 # Find the local installation of Exchange Online PowerShell Module
 $targetdir = (dir $env:LOCALAPPDATA”\Apps\2.0\” -Include CreateExoPSSession.ps1,Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse | Group Directory | ? {$_.Count -eq 2}).Values | sort LastWriteTime -Descending | select -First 1 | select -ExpandProperty FullName
@@ -29,9 +35,6 @@ else {
     Import-Module $targetdir\CreateExoPSSession.ps1
 }
 
-# Log file path
-$desktoppath = [Environment]::GetFolderPath("Desktop") + "\Exchange Reports\"
-
 # Create the session
 Connect-EXOPSSession
 
@@ -41,10 +44,10 @@ if (!(Test-Path $desktoppath)) {
 }
 
 # Export-csv: Mailboxes
-Get-Mailbox | Where-Object {$_.UserPrincipalName -like "*@<domain>.<tld>"} | Select-Object -property DisplayName,UserPrincipalName | Export-Csv -Path ($desktoppath + "Mailboxes.csv") -Append
+Get-Mailbox | Where-Object {$_.UserPrincipalName -like ("*" + $domain)} | Select-Object -property DisplayName,UserPrincipalName | Export-Csv -Path ($desktoppath + "Mailboxes.csv") -Append
 
 # Export Full Access and Send As permissions on a per user basis
-$users = Get-Mailbox | Where-Object {$_.UserPrincipalName -like "*@<domain>.<tld>"} | Select-Object -property DisplayName,UserPrincipalName,Alias
+$users = Get-Mailbox | Where-Object {$_.UserPrincipalName -like ("*" + $domain)} | Select-Object -property DisplayName,UserPrincipalName,Alias
 
 Write-Host "Processing may take a few minutes, please be patient..."
 

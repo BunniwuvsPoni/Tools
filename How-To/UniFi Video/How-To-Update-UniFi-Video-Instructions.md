@@ -12,5 +12,5 @@
 4. Optional, fixes dependency issues
       - apt-get -f install
 
-5. Reboot the system
-      - Restart Debian to refresh the platform
+## Reboot the system
+5. Restart Debian to refresh the platform

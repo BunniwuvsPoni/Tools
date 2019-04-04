@@ -1,3 +1,3 @@
 # Useful commands for troubleshooting
 
-nltest - 
+* nltest - 

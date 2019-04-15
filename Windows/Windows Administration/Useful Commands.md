@@ -13,6 +13,8 @@
 *  Back up existing key to AD
     * manage-bde -protectors -get c:
     * manage-bde -protectors -adbackup c: -id '{<ID from the previous command>}'
+*  Enable BitLocker
+    * Enable-BitLocker -MountPoint “D:” -EncryptionMethod Aes128 –UsedSpaceOnly –RecoveryPasswordProtector
 
 ## Local Administrator account
 *  How-To disable local Administrator account

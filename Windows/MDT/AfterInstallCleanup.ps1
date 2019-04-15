@@ -1,5 +1,5 @@
 # Post MDT installation cleanup
-# Run with powershell.exe -executionpolicy bypass \\<path>\AfterInstallCleanup.ps1
+# Run with administrative powershell command: powershell.exe -executionpolicy bypass \\<path>\AfterInstallCleanup.ps1
 
 # This step disables the local Administrator account
 net user Administrator /active:no

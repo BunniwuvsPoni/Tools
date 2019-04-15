@@ -9,7 +9,11 @@
   * /DNSGETDC:<DomainName> - Queries the DNS server for a list of domain controllers and their corresponding IP addresses.
   * /DSGETSITE - Returns the name of the site in which the domain controller resides.
   
-  ## BitLocker
+## BitLocker
   Back up existing key to AD
     * manage-bde -protectors -get c:
     * manage-bde -protectors -adbackup c: -id '{<ID from the previous command>}'
+
+## Local Administrator account
+  How-To disable local Administrator account
+    * net user Administrator /active:no

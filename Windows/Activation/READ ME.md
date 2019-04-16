@@ -16,7 +16,7 @@ Current license information - detailed view
 - Dism /online /Set-Edition:(edition name) /AcceptEula /ProductKey:(xxxxx-xxxxx-xxxxx-xxxxx-xxxxx)
 
 
-# This step activates Windows with the original OEM key
+## This step activates Windows with the original OEM key
 - $Productkey = (Get-WmiObject -Class SoftwareLicensingService).OA3xOriginalProductkey # Get the original OEM key
 - cscript /b C:\Windows\System32\slmgr.vbs -ipk $Productkey # Install the OEM key
 - cscript /b C:\Windows\System32\slmgr.vbs -ato # Activate the OEM key with Microsoft online

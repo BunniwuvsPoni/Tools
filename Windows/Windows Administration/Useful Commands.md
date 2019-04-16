@@ -19,3 +19,6 @@
 ## Local Administrator account
 *  How-To disable local Administrator account
     * net user Administrator /active:no
+
+## Find logged on user on a remote computer
+*  Get-WmiObject –ComputerName <Computer Name> –Class Win32_ComputerSystem | Select-Object UserName

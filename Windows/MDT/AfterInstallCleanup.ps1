@@ -8,4 +8,4 @@ net user Administrator /active:no
 Enable-BitLocker -MountPoint “C:” -EncryptionMethod Aes128 –UsedSpaceOnly –RecoveryPasswordProtector
 
 # Reboot the computer
-Restart-Computer
+Restart-Computer -Force

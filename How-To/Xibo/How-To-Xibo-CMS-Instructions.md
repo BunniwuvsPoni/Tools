@@ -70,4 +70,4 @@ gateway 192.168.x.x
 Remember to setup XMR in both Settings -> Display and Display Settings to allow "Collect Now" and "Screenshots"
 
 ## Additional Note
-Upon reboot, remember to startup Xibo using the docker-compose up -d command in the docker directory
+Upon reboot, remember to startup Xibo using the "docker-compose up -d" command in the docker directory

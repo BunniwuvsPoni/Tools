@@ -66,6 +66,10 @@ gateway 192.168.x.x
 ## Reboot the system
 26. Restart Debian to refresh the platform
 
+## Start/Stop Xibo
+docker-compose stop
+docker-compose start
+
 ## Note
 Remember to setup XMR in both Settings -> Display and Display Settings to allow "Collect Now" and "Screenshots"
 

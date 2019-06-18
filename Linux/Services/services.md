@@ -28,4 +28,4 @@
 ### 5. Restart your server to confirm that service runs on startup
 
 
-### Note: For certain changes, you may have to reload the systemctl daemon (system daemon-reload)
+#### Note: For certain changes, you may have to reload the systemctl daemon (system daemon-reload)

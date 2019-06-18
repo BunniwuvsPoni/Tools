@@ -8,7 +8,7 @@
 ### 2. Change permissions on your script so that root can execute
 - chmod 755 "script name".sh
 
-### 3. Create your <service>.service file in /etc/systemd/system/
+### 3. Create your "service".service file in /etc/systemd/system/
     [Install]
     WantedBy=multi-user.target
     

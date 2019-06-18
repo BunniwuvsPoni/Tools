@@ -23,7 +23,7 @@
     Group=root
     ExecStart=<filepath to script>
 
-### 4. Enable the service (systemctl enable <service>.service)
+### 4. Enable the service (systemctl enable "service name".service)
 
 ### 5. Restart your server to confirm that service runs on startup
 

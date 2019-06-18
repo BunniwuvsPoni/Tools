@@ -1,2 +1,2 @@
 # Repeat command evey x seconds
-- watch -n"x" command
+- watch -n"x" "command"

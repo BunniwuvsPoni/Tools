@@ -23,6 +23,9 @@
     Group=root
     ExecStart=<filepath to script>
 
-### 4. Reload the systemctl daemon (systemctl daemon-reload)
+### 4. Enable the service (systemctl enable <service>.service)
 
 ### 5. Restart your server to confirm that service runs on startup
+
+
+### Note: For certain changes, you may have to reload the systemctl daemon (system daemon-reload)

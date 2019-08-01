@@ -3,7 +3,7 @@
 ## How-To create a Linux service
 
 ### 1. Create your bash script in a location of your choosing
-- Note: remember to include the "shebang" line (#!/bin/bash)
+- Note: remember to include the "shebang" line (#!/usr/bin/env bash)
 
 ### 2. Change permissions on your script so that root can execute
 - chmod 755 "script name".sh

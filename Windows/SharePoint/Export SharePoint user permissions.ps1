@@ -6,7 +6,8 @@ Add-PSSnapin Microsoft.Sharepoint.Powershell
 $desktoppathlog = [Environment]::GetFolderPath("Desktop") + "\SharePoint Permissions Export Log.txt"
 
 # Export csv file path
-$desktoppathcsv = [Environment]::GetFolderPath("Desktop") + "\SharePoint Permissions Export.csv"
+$dateexportcsv = Get-Date -format "MM-dd-yyyy"
+$desktoppathcsv = [Environment]::GetFolderPath("Desktop") + "\" + $dateexportcsv + " - SharePoint Permissions Export.csv"
 
 # Log date and time of initiation
 date | Tee-Object -FilePath $desktoppathlog -Append

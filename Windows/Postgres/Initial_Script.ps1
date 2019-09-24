@@ -3,7 +3,7 @@
 
 # This script is intended to import a postgresql database into a postgresql instance and export all of the tables
 # How to use this script
-# Command: Start-Process PowerShell.exe -ArgumentList '-File "\\<server>\<path to this script>\Initial_Script.ps1" -importFilePath "\\<server>\<path to sql dump>.sql"' -Verb runAs
+# Command: Start-Process PowerShell.exe -ArgumentList '-File "\\<server>\<path to this script>\Initial_Script.ps1" -importFilePath "\\<server>\<path to sql dump>.sql"' -Verb RunAs
 # Note this is a two part script, you will need this script in addition to Local_Import.ps1
 
 #region requiredVariables

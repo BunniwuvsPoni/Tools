@@ -42,7 +42,7 @@ $tables = .\psql.exe -d $db -c "SELECT table_name
 foreach ($table in $tables)
 {
     $exportCommand = "\COPY (SELECT * FROM " + $table + ")
-                TO 'C:/" + $directory + "/" + $table + ".csv'
+                TO 'C:/" + $directory + "/" + $table.Trim() + ".csv'
                 WITH DELIMITER ',' CSV HEADER ENCODING 'UTF8'"
     .\psql.exe -d $db -c $exportCommand
 }

@@ -17,6 +17,10 @@ $db = "<database name>"
 # Navigate to posgresql cli directory
 cd 'C:\Program Files\PostgreSQL\<postgres version>\bin'
 
+# Terminate connections to the db
+$terminateCommand = "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = '" + $db + "'"
+.\psql.exe -c $terminateCommand
+
 # Drop the existing db
 .\dropdb.exe $db
 

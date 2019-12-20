@@ -47,3 +47,6 @@ Audio:
 Aspect ratio: 16.9
 
 ---
+
+### For OBS Recording
+Container: To avoid corrupting the MP4 container, use FLV or MKV (multiple audio tracks)

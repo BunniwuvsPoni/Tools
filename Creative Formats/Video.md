@@ -1,6 +1,6 @@
 # Recommended Video Formats
 ## As at 12/20/2019
-## Note: Framerate should be set at the video's native frame rate
+## Note: Framerate should be set at the video's native frame rate, higher frame rate is usually more realistic (especially in action scenes)
 
 ---
 

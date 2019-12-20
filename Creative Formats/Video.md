@@ -22,6 +22,7 @@ Audio:
 
 Aspect ratio: 16.9
 
+---
 
 ### For Vimeo
 Audio codec: AAC-LC
@@ -42,3 +43,5 @@ Audio:
 320 kbps
 
 Aspect ratio: 16.9
+
+---

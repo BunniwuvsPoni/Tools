@@ -10,9 +10,9 @@ Video codec: H.264
 
 Framerate: 24/25/30/48/50/60 fps
 
-Bitrate:
+#### Bitrate:
 
-#### Video:
+Video:
 
 1080p - 8-12 Mbps
 

@@ -15,7 +15,7 @@ Framerate: 24/25/30/48/50/60 fps
 Video:
 
 1080p - 8-12 Mbps
-
+/
 4k - 45-68 Mbps
 
 Audio:

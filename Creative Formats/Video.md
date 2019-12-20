@@ -1,7 +1,8 @@
 # Recommended Video Formats
 ## As at 12/20/2019
-## Note: If possible, shoot in a higher quality than what you plan to export.
-## Note: Framerate should be set at the video's native frame rate, higher frame rate is usually more realistic (especially in action scenes)
+## Note:
+- If possible, shoot in a higher quality than what you plan to export.
+- Framerate should be set at the video's native frame rate, higher frame rate is usually more realistic (especially in action scenes)
 
 ---
 

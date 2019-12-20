@@ -16,6 +16,7 @@ Compression: Lossless
 Size: Large
 Use: Editing images
 Notes: Not all applications support multi-page TIFFs, widely used in the publishing industry and for graphic artists
+
 ---
 
 ### RAW

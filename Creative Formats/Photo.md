@@ -3,6 +3,13 @@
 
 ---
 
+### Overview
+If you want to edit your photos, shoot in RAW. Otherwise, use whatever format your device offers you.
+Edit in TIFF.
+Distribute in PNG.
+
+---
+
 ### PNG
 Compression: Lossless
 Size: Medium

@@ -4,6 +4,17 @@
 
 ---
 
+### Overview
+Use native files whenever possible.
+
+May wish to consider transcoding if the performance is not up to snuff. 
+
+May want to consider proxies if the file is huge.
+
+When distributing the file, use the YouTube settings
+
+---
+
 ### For YouTube
 Container: MP4
 

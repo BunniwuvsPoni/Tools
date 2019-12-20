@@ -2,6 +2,8 @@
 ## As at 12/20/2019
 ## Note: Framerate should be set at the video's native frame rate
 
+---
+
 ### For YouTube
 Container: MP4
 

@@ -39,18 +39,12 @@ Audio codec: AAC-LC
 
 Video codec: H.264
 
-#### Bitrate:
+Video bitrate:
+- 1080p - 10-20 Mbps
+- 4k - 30-60 Mbps
+- 8k - 50-80 Mbps
 
-Video:
-
-1080p - 10-20 Mbps
-///
-4k - 30-60 Mbps
-///
-8k - 50-80 Mbps
-
-Audio:
-320 kbps
+Audio: 320 kbps
 
 Aspect ratio: 16.9
 

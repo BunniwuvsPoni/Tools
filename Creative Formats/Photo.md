@@ -4,22 +4,31 @@
 ---
 
 ### PNG
-Lossless
-Larger than JPEG
-Limited to RGB colour space
+Compression: Lossless
+Size: Medium
+Use: Default format to use for distribution
+Notes: Limited to RGB colour space, supports transparency
+
+---
 
 ### TIFF
-Lossless
-Large file size (larger than RAW and JPEG)
-Not all applications support multi-page TIFFs
-Widely used in the publishing industry and for graphic artists
-
-### JPEG
-Lossy compression
-Low file size
-Widely used on the web
+Compression: Lossless
+Size: Large
+Use: Editing images
+Notes: Not all applications support multi-page TIFFs, widely used in the publishing industry and for graphic artists
+---
 
 ### RAW
-Loseless
-Large file size
-Widely used in professional photography where the photographers want to perform their own edits
+Compression: Loseless
+Size: Large
+Use: For when you want to edit your photos afterwards
+Notes: Widely used in professional photography where the photographers want to perform their own edits
+
+---
+
+### JPEG
+Compression: Lossy
+Size: Low
+Use: For when small file sizes are absolutely critical and losing detail is not an issue
+
+---

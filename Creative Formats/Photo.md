@@ -6,9 +6,9 @@
 ### Overview
 If you want to edit your photos, shoot in RAW. Otherwise, use whatever format your device offers you.
 
-Edit in TIFF.
+If you are sending the file to editors, use TIFF.
 
-Distribute in PNG.
+If you want to distribute the file to end users, use PNG.
 
 ---
 

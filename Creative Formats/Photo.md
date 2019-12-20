@@ -1,6 +1,6 @@
 # Recommended Photo Formats
 ## As at 12/20/2019
-
+## Note: If possible, shoot in a higher quality than what you plan to export
 ---
 
 ### Overview

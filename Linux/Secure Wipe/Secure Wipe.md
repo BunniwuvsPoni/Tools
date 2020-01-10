@@ -4,7 +4,7 @@
 - dd if=/dev/urandom of=/dev/sdX bs=4k
 
 ## SSD
-1. Check that the drive is not frozen
+### 1. Check that the drive is not frozen
 - hdparm -I /dev/sda
 2. Set the user password
 - hdparm --user-master u --security-set-pass <password> /dev/sda

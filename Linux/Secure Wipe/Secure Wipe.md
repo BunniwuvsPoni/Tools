@@ -2,11 +2,22 @@
 
 ## Show disk
 - sudo fdisk -l
+- sudo fdisk -l /dev/sdX
+  - lists partitions in sdX
 
-## HDD
+## HDD partition wipe
+### 1. Select the disk
+- sudo fdisk /dev/sdX
+### 2. Delete the partitions
+- "p" to print the partition table
+- "d" followed by the number of the partition to delete that partition
+### 3. Save the changes
+- "w" to write the changes
+
+## HDD complete wipe
 - dd if=/dev/urandom of=/dev/sdX bs=4k status=progress
 
-## SSD
+## SSD complete wipe
 ### 1. Check that the drive is not frozen
 - hdparm -I /dev/sda
 ### 2. Set the user password

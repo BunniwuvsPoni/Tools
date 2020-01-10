@@ -1,5 +1,8 @@
 # How to secure wipe using Linux
 
+## Show disk
+- sudo fdisk -l
+
 ## HDD
 - dd if=/dev/urandom of=/dev/sdX bs=4k
 

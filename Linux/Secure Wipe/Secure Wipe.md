@@ -10,7 +10,7 @@
 - sudo fdisk /dev/sdX
 ### 2. Delete the partitions
 - "p" to print the partition table
-- "d" followed by the number of the partition to delete that partition
+- "d" followed by the "#" of the partition to delete that partition
 ### 3. Save the changes
 - "w" to write the changes
 

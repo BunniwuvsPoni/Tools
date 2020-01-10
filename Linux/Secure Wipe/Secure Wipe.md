@@ -4,7 +4,7 @@
 - sudo fdisk -l
 
 ## HDD
-- dd if=/dev/urandom of=/dev/sdX bs=4k
+- dd if=/dev/urandom of=/dev/sdX bs=4k status=progress
 
 ## SSD
 ### 1. Check that the drive is not frozen

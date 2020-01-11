@@ -28,3 +28,7 @@
 - hdparm --user-master u --security-erase <password> /dev/sda
 ### 5. Check that security has been disabled
 - hdparm -I /dev/sda
+
+## SSD trim status
+### 0 means TRIM is enabled, 1 means TRIM  is disabled
+- fsutil behavior query DisableDeleteNotify

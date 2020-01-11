@@ -19,8 +19,6 @@
 ## HDD complete wipe - Linux
 - dd if=/dev/urandom of=/dev/sdX bs=4k status=progress
 
-## HDD complete wipe - DBAN
-
 ## SSD complete wipe - Linux
 ### 1. Check that the drive is not frozen
 - hdparm -I /dev/sda
@@ -34,9 +32,13 @@
 ### 5. Check that security has been disabled
 - hdparm -I /dev/sda
 
+---
+
 ## SSD trim status
 ### 0 means TRIM is enabled, 1 means TRIM  is disabled
 - fsutil behavior query DisableDeleteNotify
+
+## HDD complete wipe - DBAN
 
 ## SSD complete wipe - Windows
 - PartedMagic has good reviews and support

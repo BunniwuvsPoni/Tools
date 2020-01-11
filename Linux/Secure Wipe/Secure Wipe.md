@@ -36,7 +36,7 @@
 
 ---
 
-## SSD trim status (should be enabled by default Windows 7 or higher)
+## SSD trim status (should be enabled by default Windows 7 or higher on SSDs)
 ### 0 means TRIM is enabled, 1 means TRIM  is disabled
 - fsutil behavior query DisableDeleteNotify
 

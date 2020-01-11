@@ -28,7 +28,7 @@
 - hdparm -I /dev/sda
 ### 4. Secure erase
 - hdparm --user-master u --security-erase <password> /dev/sda
-- hdparm --user-master u --security-erase-enhanced p /dev/sda - if the drive supports enchanted erase
+- hdparm --user-master u --security-erase-enhanced p /dev/sda - if the drive supports enhanced erase
 ### 5. Check that security has been disabled
 - hdparm -I /dev/sda
 ### 6. Check that there is nothing in the first few MBs of the disk

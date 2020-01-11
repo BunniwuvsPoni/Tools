@@ -7,7 +7,7 @@
 - sudo fdisk -l /dev/sdX
   - lists partitions in sdX
 
-## HDD partition wipe
+## HDD partition wipe - Linux
 ### 1. Select the disk
 - sudo fdisk /dev/sdX
 ### 2. Delete the partitions
@@ -16,10 +16,10 @@
 ### 3. Save the changes
 - "w" to write the changes
 
-## HDD complete wipe
+## HDD complete wipe - Linux
 - dd if=/dev/urandom of=/dev/sdX bs=4k status=progress
 
-## SSD complete wipe
+## SSD complete wipe - Linyx
 ### 1. Check that the drive is not frozen
 - hdparm -I /dev/sda
 ### 2. Set the user password
@@ -34,3 +34,8 @@
 ## SSD trim status
 ### 0 means TRIM is enabled, 1 means TRIM  is disabled
 - fsutil behavior query DisableDeleteNotify
+
+## SSD complete wipe
+- PartedMagic has good reviews and support
+- Utility from SSD manufacturer
+- BIOS secure erase

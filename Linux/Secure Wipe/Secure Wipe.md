@@ -31,7 +31,7 @@
 - hdparm --user-master u --security-erase-enhanced p /dev/sda - if the drive supports enhanced erase
 ### 5. Check that security has been disabled
 - hdparm -I /dev/sda
-### 6. Check that there is nothing in the first few MBs of the disk
+### 6. Check that there is nothing in the first few MBs of the disk (should output nothing)
 - dd if=/dev/sda bs=1M count=5
 
 ---

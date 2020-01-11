@@ -19,7 +19,9 @@
 ## HDD complete wipe - Linux
 - dd if=/dev/urandom of=/dev/sdX bs=4k status=progress
 
-## SSD complete wipe - Linyx
+## HDD complete wipe - DEBAN
+
+## SSD complete wipe - Linux
 ### 1. Check that the drive is not frozen
 - hdparm -I /dev/sda
 ### 2. Set the user password
@@ -35,7 +37,7 @@
 ### 0 means TRIM is enabled, 1 means TRIM  is disabled
 - fsutil behavior query DisableDeleteNotify
 
-## SSD complete wipe
+## SSD complete wipe - Windows
 - PartedMagic has good reviews and support
 - Utility from SSD manufacturer
 - BIOS secure erase

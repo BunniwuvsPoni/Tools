@@ -19,7 +19,7 @@
 ## HDD complete wipe - Linux
 - dd if=/dev/urandom of=/dev/sdX bs=4k status=progress
 
-## HDD complete wipe - DEBAN
+## HDD complete wipe - DBAN
 
 ## SSD complete wipe - Linux
 ### 1. Check that the drive is not frozen

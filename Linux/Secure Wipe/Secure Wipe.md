@@ -1,4 +1,6 @@
 # How to secure wipe using Linux
+HDD - When a file gets deleted, only the index/pointer is deleted. This is why you overwrite the entire disk.
+SSD - When a file gets deleted, TRIM deletes the file from storage for performance reasons (unlike the hard drive, solid state drives cannot "paint" over the data like hard drives do, it must delete the existing data first). To ensure a complete wipe, run the secure erase command.
 
 ## Show disk
 - sudo fdisk -l

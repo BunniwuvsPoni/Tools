@@ -2,77 +2,56 @@
 .SYNOPSIS
 Export Mailbox, Full Access/Send As permissions to csv
 .DESCRIPTION
-Creates 3 csv exports of Mailboxes, users with Full Access permissions, and users with Send As permissions from Exchange Online into a folder "Exchange Reports" on the user's desktop
-Note: Exchange Online PowerShell Module (installer only works via Internet Explorer) must be installed on the computer running this script
+Creates 3 csv exports (Mailboxes, users with Full Access permissions, and users with Send As permissions) taken from Exchange Online and placed into a folder "Exchange Reports" in the specified path
 Note: ExecutionPolicy should be set to "RemoteSigned"
+Last updated: 02/24/2020 - Updated to use Exchange Online PowerShell V2
 .EXAMPLE
 & '.\O365 - Export Exchange Online Permissions.ps1'
 .LINK
-https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell?view=exchange-ps
+https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/exchange-online-powershell-v2/exchange-online-powershell-v2?view=exchange-ps
 #>
 
-
-# Log file path
-$desktoppath = [Environment]::GetFolderPath("Desktop") + "\Exchange Reports\"
+# Export file path
+$filepath = [Environment]::GetFolderPath("Desktop") + "\Exchange Reports\"
 
 # Set domain variable
 $domain = "@<domain>.<tld>"
 
-# Connecting to O365 Exchange Online PowerShell
+# Connecting to O365 Exchange Online PowerShell V2
+# Find the local installation of Exchange Online PowerShell V2 Module
+$exchangeonlinepowershellinstalled = Get-InstalledModule -Name "ExchangeOnlineManagement"
 
-# Find the local installation of Exchange Online PowerShell Module
-$targetdir = (dir $env:LOCALAPPDATA”\Apps\2.0\” -Include CreateExoPSSession.ps1,Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse | Group Directory | ? {$_.Count -eq 2}).Values | sort LastWriteTime -Descending | select -First 1 | select -ExpandProperty FullName
-
-# Check if $targetdir exists
-if ($targetdir -eq $null) {
-    Write-Host "Exchange Online PowerShell Module is not installed, exiting script." -ForegroundColor Red
+# Check if Exchange Online Powershell Module V2 exists
+if ($exchangeonlinepowershellinstalled -eq $null) {
+    Write-Host "Exchange Online PowerShell Module V2 is not installed, exiting script." -ForegroundColor Red
     Exit
 }
 else {
-    Write-Host "Exchange Online PowerShell Module is installed, proceeding with script." -ForegroundColor Green
-    
-    # Import the local installation of Exchange Online PowerShell Module
-    Import-Module $targetdir\CreateExoPSSession.ps1
+    Write-Host "Exchange Online PowerShell Module V2 is installed, proceeding with script." -ForegroundColor Green
 }
 
-# Create the session
-Connect-EXOPSSession
+# Create the session (need to provide administrator username and password)
+Connect-ExchangeOnline
 
 # Creates the Reports folder on the Desktop if it does not exist
-if (!(Test-Path $desktoppath)) {
-    New-Item -ItemType Directory -Force -Path $desktoppath
+if (!(Test-Path $filepath)) {
+    New-Item -ItemType Directory -Force -Path $filepath
 }
 
-# Export-csv: Mailboxes
-Get-Mailbox | Where-Object {$_.UserPrincipalName -like ("*" + $domain)} | Select-Object -property DisplayName,UserPrincipalName | Export-Csv -Path ($desktoppath + "Mailboxes.csv") -Append
+Write-Host "Processing export..."
 
-# Export Full Access and Send As permissions on a per user basis
-$users = Get-Mailbox | Where-Object {$_.UserPrincipalName -like ("*" + $domain)} | Select-Object -property DisplayName,UserPrincipalName,Alias
+# Export-csv: All Mailboxes
+Get-EXOMailbox | Where-Object {$_.UserPrincipalName -like ("*" + $domain)} | Select-Object -property DisplayName,UserPrincipalName | Export-Csv -Path ($filepath + "Mailboxes.csv") -NoTypeInformation
 
-Write-Host "Processing may take a few minutes, please be patient..."
+# Export-csv: Full Access where user identity follows the domain name
+Get-EXOMailbox | Get-EXOMailboxPermission | Where-Object{$_.User -like ("*" + $domain)} | Select-Object -property Identity,User | Export-Csv -Path ($filepath + "Full_Access.csv") -NoTypeInformation
 
-# Progress bar
-$i = 0
-
-foreach ($user in $users) {
-    
-    $i++
-
-    Write-Host "Processing mailbox:" $user.Alias
-
-    Write-Progress -Activity "Processing mailboxes" -Status "Status:" -PercentComplete (($i / $users.count) * 100)
-
-    # Export-csv: Full Access
-    Get-Mailbox | Get-MailboxPermission -User $user.Alias | Export-Csv -Path ($desktoppath + "Full Access.csv") -Append
-
-    # Export-csv: Send As
-    Get-Mailbox | Get-RecipientPermission -Trustee $user.Alias | Export-Csv -Path ($desktoppath + "Send As.csv") -Append
-}
-
+# Export-csv: Send As where trustee identity follows the domain name
+Get-EXOMailbox | Get-EXORecipientPermission | Where-Object{$_.Trustee -like ("*" + $domain)} | Select-Object -property Identity,Trustee | Export-Csv -Path ($filepath + "Send_As.csv") -NoTypeInformation
 
 # Remove all PowerShell Sessions
 Get-PSSession | Remove-PSSession
 
 # End of script
-Write-Host "End of script."
+Write-Host "Export completed."
 [void](Read-Host 'Press Enter to continue…')

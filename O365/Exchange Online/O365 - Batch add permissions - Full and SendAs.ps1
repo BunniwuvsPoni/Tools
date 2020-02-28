@@ -8,7 +8,7 @@ Last updated: 02/28/2020 - Updated to use Exchange Online PowerShell V2
 .PARAMETER file
 Import .csv file with EXO permissions to add, 2 columns, Mailbox followed by User
 .EXAMPLE
-& '.\EXO2020MP.ps1' -file "<file>"
+& '.\O365 - Batch add permissions - Full and SendAs.ps1' -file "<file>"
 .LINK
 https://support.microsoft.com/en-ca/help/2646504/how-to-remove-automapping-for-a-shared-mailbox-in-office-365
 https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/exchange-online-powershell-v2/exchange-online-powershell-v2?view=exchange-ps

@@ -15,7 +15,7 @@ $user = "i:0#.w|ndeb\$name"
 
 echo "Please confirm that ($user) is the user you wish to delete from all SharePoint environments. (y/n)" | Tee-Object -FilePath $desktoppath -Append
 
-$readhost = Read-Host " (y / n) "
+$readhost = Read-Host "(y / n)"
 
 if($readhost -eq 'y'){
 

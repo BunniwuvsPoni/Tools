@@ -29,11 +29,11 @@ param(
 $domain = "@<domain>.<tld>"
 
 # Validates user/mailbox is a full mailbox by searching for the "@" symbol
-if(!$user -match "@") {
+if(!($user -match "@")) {
     $user = $user + $domain
 }
 
-if(!$mailbox -match "@") {
+if(!($mailbox -match "@")) {
     $mailbox = $mailbox + $domain
 }
 

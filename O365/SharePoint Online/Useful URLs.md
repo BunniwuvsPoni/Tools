@@ -10,4 +10,4 @@
 - https://<tenant>.sharepointonline.com/sites/<site>/_layouts/15/start.aspx#/_layouts/15/user.aspx
 
 ## Permissions : Site Collection Administrators
-- https://ndeb.sharepoint.com/_layouts/15/mngsiteadmin.aspx
+- https://<tenant>.sharepointonline.com/sites/<site>/_layouts/15/mngsiteadmin.aspx

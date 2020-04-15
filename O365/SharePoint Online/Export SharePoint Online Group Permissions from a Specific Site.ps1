@@ -45,7 +45,7 @@ $Groups = Get-SPOSiteGroup -Site $URL
 
 foreach($Group in $Groups)
 {
-    Write-Output $Groups.LoginName
+    Write-Output $Group.LoginName
     
     $UsersInGroup = Get-SPOUser -Site $URL -Group $Group.LoginName
 

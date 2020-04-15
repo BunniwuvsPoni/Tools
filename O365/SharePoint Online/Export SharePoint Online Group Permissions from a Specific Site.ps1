@@ -5,13 +5,16 @@
 $Domain = "<insert domain here>"
 
 # SPO Site Url is specified here
-$URL = "https://" + $Domain + ".sharepoint.com/sites/<insert site here>"
+$URL = "https://" + $Domain + ".sharepoint.com/sites/" + "<insert site here>"
+
+# Server path
+$Server = [Environment]::GetFolderPath("Desktop")
 
 # Log file path
-$DesktopPathLog = [Environment]::GetFolderPath("Desktop") + "\SharePoint Online Permissions Export Log.txt"
+$DesktopPathLog = $Server + "\SharePoint Online Permissions Export Log.txt"
 
 # Export csv file path
-$ExportCsvPath = [Environment]::GetFolderPath("Desktop") + "\SPO Permissions Export.csv"
+$ExportCsvPath = $Server + "\SPO Permissions Export.csv"
 
 # SPO Admin Url
 $SPOUrl = "https://" + $Domain + "-admin.sharepoint.com"

@@ -38,7 +38,7 @@ if(!($mailbox -match "@")) {
 }
 
 # Confirmation of settings
-echo "Please confirm that $user will be $option from $mailbox. (y/n)"
+echo "Please confirm that $user will be $option to/from $mailbox. (y/n)"
 
 $readhost = Read-Host "(y / n)"
 

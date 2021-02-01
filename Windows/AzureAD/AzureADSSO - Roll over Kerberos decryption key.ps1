@@ -1,3 +1,4 @@
+# AzureAD PowerShell must be installed
 # Must be ran in administrative PowerShell
 # Must have Microsoft 365 Global Administrator account
 # Must have Active Directory Domain Administrator account

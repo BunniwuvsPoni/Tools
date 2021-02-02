@@ -1,12 +1,12 @@
 # Prevents screen lock during the specified start and end times
 
-# Loading assembly...
-[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") 
-
 # Configuration
 $start = Get-Date '07:00'
 $end = Get-Date '17:00'
 $frequency = 30
+
+# Initialize Wscript.Shell
+$wShell = New-Object -com "Wscript.Shell"
 
 while ($true) {
     # Checks every (x) seconds
@@ -18,11 +18,9 @@ while ($true) {
     # Check if between start and end times
     if($start.TimeOfDay -le $date.TimeOfDay -and $end.TimeOfDay -ge $date.TimeOfDay)
     {
-        # Moves the mouse one pixel to the right and back
-        $Pos = [System.Windows.Forms.Cursor]::Position
-        [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((($Pos.X) + 1) , $Pos.Y)
-        $Pos = [System.Windows.Forms.Cursor]::Position
-        [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point((($Pos.X) - 1) , $Pos.Y)
+        # Toggles the scroll lock button
+        $wShell.sendkeys("{SCROLLLOCK}")
+        $wShell.sendkeys("{SCROLLLOCK}")
 
         # Logging to PowerShell
         Write-Host "Triggered @" $date

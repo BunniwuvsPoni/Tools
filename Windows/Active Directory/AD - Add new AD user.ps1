@@ -74,6 +74,9 @@ if ($confirmation -eq 'y') {
     # Add new user to group
     Add-ADGroupMember -Identity $group -Members $username
 
+    # Enable new AD user
+    Enable-ADAccount $username
+    
     Write-Host 'User created:' $username
 } else {
     Write-Host 'User creation process cancelled.'

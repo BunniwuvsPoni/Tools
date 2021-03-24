@@ -17,7 +17,7 @@ $company = "<Company name>"
 $streetAddress = "<Address>"
 $city = "<City>"
 $state = "<State>"
-$postalCode = "Postal code"
+$postalCode = "<Postal code>"
 $country = "<Country code>"
 $description = "Domain user."
 

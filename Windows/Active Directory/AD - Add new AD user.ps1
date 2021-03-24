@@ -40,7 +40,7 @@ Write-Host 'Username:' $username
 Write-Host 'Email:' $email
 
 # Ask for user confirmation
-$confirmation = Read-Host "Are you Sure You Want To Proceed (y/n)"
+$confirmation = Read-Host "Are You Sure You Want To Proceed (y/n)"
 if ($confirmation -eq 'y') {
 
     # Imports AD module

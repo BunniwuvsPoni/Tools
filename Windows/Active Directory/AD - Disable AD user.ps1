@@ -15,7 +15,7 @@ $username = $firstName.Substring(0,1) + $lastName
 $username = $username.ToLower()
 
 # Convert plain text password to secure string
-$password = ConvertTo-SecureString $password -AsPlainText -Force
+$newPassword = ConvertTo-SecureString $password -AsPlainText -Force
 
 # Displays user information
 Write-Host 'Username:' $username
@@ -28,7 +28,7 @@ if ($confirmation -eq 'y') {
     Import-Module ActiveDirectory
 
     # Change AD user password
-    Set-ADAccountPassword -Identity $username -NewPassword $password -Reset
+    Set-ADAccountPassword -Identity $username -NewPassword $newPassword -Reset
     
     # Sets AD user properties
     Set-ADUser $username -replace @{msExchHideFromAddressLists=$true}

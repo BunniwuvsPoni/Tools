@@ -4,8 +4,8 @@
 2. Download and install Unattended-Upgrade: sudo apt install unattended-upgrades
 3. Configure Unattended-Upgrade: sudo dpkg-reconfigure -plow unattended-upgrades
 4. Verify the status of the service: systemctl status unattended-upgrades
-  - Enable the service: sudo systemctl enable unattended-upgrades
-  - Start the service: sudo systemctl start unattended-upgrades
+   - Enable the service: sudo systemctl enable unattended-upgrades
+    - Start the service: sudo systemctl start unattended-upgrades
 7. Test the script: sudo unattended-upgrades --dry-run --debug
 8. Verify the log: cat /var/log/unattended-upgrades/unattended-upgrades.log
 

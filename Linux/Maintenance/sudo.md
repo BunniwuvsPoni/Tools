@@ -5,3 +5,6 @@
 3. /sbin/adduser username sudo
 4. Restart the system
 5. To test, run the following command: sudo echo 'Hello, world!'
+
+Reference:
+https://milq.github.io/enable-sudo-user-account-debian/

@@ -13,4 +13,4 @@ Note:
 To enable automatic reboots edit the file (/etc/apt/apt.conf.d/50unattended-upgrades), not recommended for servers...
 
 Reference:
-https://www.linode.com/docs/guides/how-to-configure-automated-security-updates-debian/
+https://linuxize.com/post/how-to-set-up-automatic-updates-on-ubuntu-18-04/

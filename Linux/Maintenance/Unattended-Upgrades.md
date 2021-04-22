@@ -5,7 +5,11 @@
 3. Configure Unattended-Upgrade: sudo dpkg-reconfigure -plow unattended-upgrades
 4. Enable the service: sudo systemctl enable unattended-upgrades
 5. Start the service: sudo systemctl start unattended-upgrades
+6. Test the script: sudo unattended-upgrades --dry-run --debug
 
 
 Note:
 To enable automatic reboots edit the file (/etc/apt/apt.conf.d/50unattended-upgrades), not recommended for servers...
+
+Reference:
+https://www.linode.com/docs/guides/how-to-configure-automated-security-updates-debian/

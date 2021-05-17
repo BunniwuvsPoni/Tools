@@ -1,4 +1,4 @@
-# Must to ran with ExecutionPolicy Bypass setting
+# Must be ran with ExecutionPolicy Bypass setting
 
 $Name = '<VPN Name>'
 $ServerAddress = '<VPN URL>'

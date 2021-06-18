@@ -8,6 +8,7 @@ Swap must be enabled and a datastore selected
 
 Follow instructions at:
 https://tinkertry.com/easy-update-to-latest-esxi
+
 1. Enable maintenance mode
 2. Restart host
 3. Connect to SSH
@@ -17,6 +18,7 @@ https://tinkertry.com/easy-update-to-latest-esxi
 ## Update using local datastore
 Follow instructions at:
 https://www.vembu.com/blog/how-to-update-to-esxi-6-7-update-3-using-command-line/
+
 1. Upload [VMware vSphere Hypervisor (ESXi) Offline Bundle] to datastore
 2. Enable maintenance mode
 3. Restart host

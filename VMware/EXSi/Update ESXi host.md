@@ -23,5 +23,5 @@ https://www.vembu.com/blog/how-to-update-to-esxi-6-7-update-3-using-command-line
 2. Enable maintenance mode
 3. Restart host
 4. Connect to SSH
-5. 
+5. esxcli software vib install -d “/vmfs/volumes/Datastore/DirectoryName/(vSphere ESXi offline bundle).zip”
 6. Reboot host

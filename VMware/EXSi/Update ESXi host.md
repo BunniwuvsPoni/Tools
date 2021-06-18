@@ -19,5 +19,5 @@ https://tinkertry.com/easy-update-to-latest-esxi
 2. Enable maintenance mode
 3. Restart host
 4. Connect to SSH
-5. esxcli software profile update -p (ESXi version) -d (VMware repository link)
+5. 
 6. Reboot host

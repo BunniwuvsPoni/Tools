@@ -15,3 +15,9 @@ https://tinkertry.com/easy-update-to-latest-esxi
 5. Reboot host
 
 ## Update using local datastore
+1. Upload [VMware vSphere Hypervisor (ESXi) Offline Bundle] to datastore
+2. Enable maintenance mode
+3. Restart host
+4. Connect to SSH
+5. esxcli software profile update -p (ESXi version) -d (VMware repository link)
+6. Reboot host

@@ -2,7 +2,7 @@
 
 Note:
 - Telnet must be installed in order to proceed.
-- Start -> Control Panel -> Programs and Features -> Turn Windows features on or off -> Telnet Client
+  - Start -> Control Panel -> Programs and Features -> Turn Windows features on or off -> Telnet Client
 
 1. Launch PowerShell
 2. Telnet

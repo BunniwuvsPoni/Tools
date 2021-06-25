@@ -13,5 +13,5 @@ Note:
 7. data
 9. Subject: (subject)
 10. (additional content as required...)
-11. "." (dot to send
+11. "." (dot to send)
 12. quit

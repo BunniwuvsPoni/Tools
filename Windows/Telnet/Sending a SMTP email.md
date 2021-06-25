@@ -1,0 +1,3 @@
+# How to send a SMTP email via PowerShell and Telnet
+
+Note: Telnet must be installed in order to proceed...

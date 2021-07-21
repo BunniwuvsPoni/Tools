@@ -4,6 +4,9 @@
 - New-ComplianceSecurityFilter -FilterName <Name> -Users (username)@(domain).(tld) -Filters "Mailbox_PrimarySmtpAddress -eq '(username)@(domain).(tld)'" -Action All
 
 ## Notes:
+*By creating filters, i.e. allowing all permissions to (email), you are implicilty excluding all other data sources...
+- To Restrict all, include Exchange Online and SharePoint Online
+  
 To specify specific mailboxes, use the following filter:
 - Mailbox_PrimarySmtpAddress -eq '(email)'
   

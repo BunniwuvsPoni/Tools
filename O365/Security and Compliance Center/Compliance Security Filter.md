@@ -7,8 +7,9 @@
 To specify specific mailboxes, use the following filter:
 - Mailbox_PrimarySmtpAddress -eq '(email)'
   
-To apply to all mailboxes, use the following filter:
-- Mailbox_PrimarySmtpAddress -ne 'NoPurge@domain.tld'
+To apply to all mailboxes, use the following filter and action:
+- Mailbox_PrimarySmtpAddress -eq 'NoPurge@domain.tld'
+- Purge
 
 To apply to all SharePoint Online sites, use the following filter:
 - Site_Path -eq 'nosites'

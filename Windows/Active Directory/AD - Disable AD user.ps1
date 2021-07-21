@@ -30,6 +30,9 @@ if ($confirmation -eq 'y') {
     # Change AD user password
     Set-ADAccountPassword -Identity $username -NewPassword $newPassword -Reset
     
+    # Clear account expiration date
+    Clear-ADAccountExpiration -Identity $username
+    
     # Sets AD user properties
     Set-ADUser $username -replace @{msExchHideFromAddressLists=$true}
 

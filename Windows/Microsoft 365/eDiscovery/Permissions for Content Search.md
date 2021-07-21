@@ -8,3 +8,5 @@ Source: https://docs.microsoft.com/en-us/powershell/exchange/connect-to-scc-powe
 ### Notes
 To specify specific mailboxes, use the following filter:
 - Mailbox_PrimarySmtpAddress -eq '(Email)'
+To see your compliance security filters:
+- Get-ComplianceSecurityFilter | ft FilterName, Action, Users, Filters, IsValid

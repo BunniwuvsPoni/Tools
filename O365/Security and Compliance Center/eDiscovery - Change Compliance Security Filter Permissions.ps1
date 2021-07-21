@@ -1,5 +1,5 @@
 # This script is intended to add/remove a specific user to/from all Compliance Security Filters in Microsoft 365
-# Note: EXO V2 module is required
+# Note: EXO V2 module is required, user must have eDiscovery Manager role in Office 365 Security & Compliance
 
 # Required parameters to modify Compliance Security Filters
 param(

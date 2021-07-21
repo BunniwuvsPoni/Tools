@@ -19,6 +19,7 @@ To disable all SharePoint Online sites, use the following filter and action:
 - All
 
 You can use search permissions filtering to let an eDiscovery manager search only a subset of mailboxes and sites in your organization. You can also use permissions filtering to let that same eDiscovery manager search only for mailbox or site content that meets a specific search criteria. For example, you might let an eDiscovery manager search only the mailboxes of users in a specific location or department. You do this by creating a filter that uses a supported recipient filter to limit which mailboxes a specific user or group of users can search.
+
 Source:
 - https://docs.microsoft.com/en-us/microsoft-365/compliance/permissions-filtering-for-content-search?view=o365-worldwide
 - https://docs.microsoft.com/en-us/powershell/module/exchange/new-compliancesecurityfilter?view=exchange-ps

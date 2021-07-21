@@ -4,12 +4,12 @@
 - New-ComplianceSecurityFilter -FilterName <Name> -Users (username)@(domain).(tld) -Filters "Mailbox_PrimarySmtpAddress -eq '(username)@(domain).(tld)'" -Action All
 
 ## Notes:
-*By creating filters, you are implicilty excluding all other data sources...
-- To Restrict all, include Exchange Online and SharePoint Online Filters
-  
 To specify specific mailboxes, use the following filter:
 - Mailbox_PrimarySmtpAddress -eq '(email)'
   
+*By creating filters, you are implicilty excluding all other data sources...
+- To Restrict all, include Exchange Online and SharePoint Online Filters  
+
 To disable purge for all mailboxes, use the following filter and action:
 - Mailbox_PrimarySmtpAddress -eq 'NoPurge@domain.tld'
 - Purge

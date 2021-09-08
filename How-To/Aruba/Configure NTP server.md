@@ -2,7 +2,7 @@
 	
 1. Connect to the switch via SSH
 2. Go into configuration mode
- - config
+	- config
 3. Setup daylight savings rules
 - time daylight-time-rule continental-us-and-canada
 4. Set the time zone

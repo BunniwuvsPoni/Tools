@@ -1,3 +1,5 @@
+	# How to configure NTP server on Aruba switches via SSH (Canada/EST)
+	
 	1. Connect to the switch via SSH
 	2. Go into configuration mode
 		a. config

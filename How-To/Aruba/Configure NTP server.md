@@ -2,9 +2,9 @@
 	
 	1. Connect to the switch via SSH
 	2. Go into configuration mode
-		a. config
+	- config
 	3. Setup daylight savings rules
-		a. time daylight-time-rule continental-us-and-canada
+	- time daylight-time-rule continental-us-and-canada
 	4. Set the time zone
 		a. time timezone -300
 	5. Configure DNS server

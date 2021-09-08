@@ -4,30 +4,30 @@
 2. Go into configuration mode
 	- config
 3. Setup daylight savings rules
-- time daylight-time-rule continental-us-and-canada
+	- time daylight-time-rule continental-us-and-canada
 4. Set the time zone
-a. time timezone -300
+	- time timezone -300
 5. Configure DNS server
-a. ip dns server-address priority 1 (ip address)
-b. ip dns server-address priority 2 (ip address)
+	- ip dns server-address priority 1 (ip address)
+	- ip dns server-address priority 2 (ip address)
 6. Set timesync to NTP
-a. timesync ntp
+	- timesync ntp
 7. Set to unicast
-a. ntp unicast
+	- ntp unicast
 8. Set the NTP server
-a. ntp server-name pool.ntp.org iburst
+	- ntp server-name pool.ntp.org iburst
 9. Enable the NTP service
-a. ntp enable
+	- ntp enable
 10. Verify NTP sync is working
-a. show time
-b. show ntp status
-c. show ntp statistics
+	- show time
+	- show ntp status
+	- show ntp statistics
 11. Save the configuration
-a. write memory
+	- write memory
 12. Exit configuration mode
-a. exit
+	- exit
 13. Confirm configuration was saved
-a. show running-config
-b. show config
+	- show running-config
+	- show config
 14. Sign out of SSH
-a. exit
+	- exit

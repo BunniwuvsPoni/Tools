@@ -19,10 +19,12 @@ if ($endInput -match "[0-9][0-9]:[0-9][0-9]") {
 
     if($readhost -eq 'n'){
     echo "User did not confirm the specified date/time, closing function."
+    Read-Host -Prompt "Press Enter to exit"
     Exit
     }
 } else {
     echo "Time must be specified in HH:SS format, closing function."
+    Read-Host -Prompt "Press Enter to exit"
     Exit
 }
 
@@ -48,6 +50,7 @@ while ($true) {
     } else {
         # Logging to PowerShell
         Write-Host "Exit @" $date ", time is past specified end time of" $end
+        Read-Host -Prompt "Press Enter to exit"
         exit
     }
 }

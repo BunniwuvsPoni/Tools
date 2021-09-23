@@ -1,14 +1,30 @@
-# Prevents screen lock during the specified start and end times
-# Launch using PowerShell
+# Prevents screen lock until the specified end time at the end of the current day
+# Launch using a shortcut with the following parameters: [C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File "C:\(directory)\Prevent screen lock - Requires user inputs.ps1"]
 
-# Configuration
+# Required end time
 param(
     [Parameter(Mandatory=$true)][string]$endInput
     )
 
-$start = Get-Date "00:00"
-$end = Get-Date $endInput
-$frequency = 30
+# Validation of end time
+if ($endInput -match "[0-9][0-9]:[0-9][0-9]") {
+    # Configuration
+    $start = Get-Date "00:00"
+    $end = Get-Date $endInput
+    $frequency = 30
+
+    echo "Please confirm the date/time the script should terminate (y/n):" $end
+
+    $readhost = Read-Host "(y / n)"
+
+    if($readhost -eq 'n'){
+    echo "User did not confirm the specified date/time, closing function."
+    Exit
+    }
+} else {
+    echo "Time must be specified in HH:SS format, closing function."
+    Exit
+}
 
 # Initialize Wscript.Shell
 $wShell = New-Object -com "Wscript.Shell"

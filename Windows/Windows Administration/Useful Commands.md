@@ -22,3 +22,10 @@
 
 ## Find logged on user on a remote computer
 *  Get-WmiObject –ComputerName (Remote Computer Name) –Class Win32_ComputerSystem | Select-Object UserName
+ 
+## Battery Report
+* powercfg /batteryreport
+
+## System Information
+* In PowerShell: SystemInfo
+* Windows Search: System Information

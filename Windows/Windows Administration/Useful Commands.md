@@ -29,3 +29,9 @@
 ## System Information
 * In PowerShell: SystemInfo
 * Windows Search: System Information
+
+## Test NTP
+ * time.windows.com
+    * w32tm /stripchart /computer:time.windows.com /dataonly /samples:5
+ 
+ 

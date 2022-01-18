@@ -33,5 +33,8 @@
 ## Test NTP
  * time.windows.com
     * w32tm /stripchart /computer:time.windows.com /dataonly /samples:5
- 
+ * Current time zone
+    * w32tm /tz
+ * List NTP peers
+    * w32tm /query /peers
  

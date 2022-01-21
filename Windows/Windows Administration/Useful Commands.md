@@ -8,7 +8,10 @@
   * /DCNAME:<DomainName> - Get the PDC name for <DomainName>
   * /DNSGETDC:<DomainName> - Queries the DNS server for a list of domain controllers and their corresponding IP addresses.
   * /DSGETSITE - Returns the name of the site in which the domain controller resides.
-  
+
+## Test user credentials
+ * Start-Process -FilePath cmd.exe /c -Credential (Get-Credential)
+ 
 ## BitLocker
 *  Back up existing key to AD
     * manage-bde -protectors -get c:

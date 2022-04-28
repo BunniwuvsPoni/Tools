@@ -1,7 +1,7 @@
 # This script exports all computers from Active Directory
 
 # Export path
-$path = C:\Users\twangadmin\Desktop\
+$path = (file path)
 $path = $path + "Computers.csv"
 
 # Get computes and export to path

@@ -4,8 +4,8 @@
     - The cron command-line utility, also known as cron job, is a job scheduler on Unix-like operating systems
 2. 0 1 * * * find /var/spool/asterisk/monitor/ -name "*.wav" -mtime +183 -delete >/dev/null 2>&1
     - Everyday @ 1am, find and delete call recordings greater than 183 days, no output
-3. 0 2 * * * find /var/spool/asterisk/monitor/ -type d -empty -delete
-    - Everyday @ 2am, find and delete empty folders
+3. 0 2 * * * find /var/spool/asterisk/monitor/ -type d -empty -delete >/dev/null 2>&1
+    - Everyday @ 2am, find and delete empty call recordings folders, no output
 
 Notes:
 

@@ -4,4 +4,4 @@
 netsh wlan show profile
 
 ## Export wireless profile
-netsh wlan export profile <profile> key=clear folder=c:\temp
+netsh wlan export profile (profile) key=clear folder=c:\temp

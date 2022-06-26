@@ -46,3 +46,6 @@ https://www.vembu.com/blog/how-to-update-to-esxi-6-7-update-3-using-command-line
 
 ## Backup ESXi configuration
 https://kb.vmware.com/s/article/2042141
+
+## Restart ESXi host
+https://vdc-download.vmware.com/vmwb-repository/dcr-public/24be7af7-d9cd-48d9-bab8-8c91614be19d/0ca33108-8017-4b40-86b9-f066456894ea/doc/GUID-73ED2338-D29D-411F-8B7B-35DFB1871EA3.html

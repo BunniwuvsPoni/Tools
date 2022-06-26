@@ -20,8 +20,9 @@ https://tinkertry.com/easy-update-to-latest-esxi
 9. Enable ESXi SSH
 10. Check the version: esxcli system version get
 11. Backup ESXi configuration
-12. Disable maintenance mode
-13. Restart ESXi host
+12. Restart ESXi host
+13. Disable maintenance mode
+14. Start VMs
 
 ## Update using local datastore
 Follow instructions at:
@@ -39,8 +40,9 @@ https://www.vembu.com/blog/how-to-update-to-esxi-6-7-update-3-using-command-line
 10. Enable ESXi SSH
 11. Check the version: esxcli system version get
 12. Backup ESXi configuration
-13. Disable maintenance mode
-14. Restart ESXi host
+13. Restart ESXi host
+14. Disable maintenance mode
+15. Start VMs
 
 ## Backup ESXi configuration
 https://kb.vmware.com/s/article/2042141

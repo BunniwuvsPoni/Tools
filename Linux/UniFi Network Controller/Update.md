@@ -5,4 +5,4 @@
 3. Ensure the system is up to date using: sudo apt update && sudo apt full-upgrade
 4. cd /tmp/
 5. wget [UniFi Network Controller Link]
-6. dpkg -i unifi_sysvinit_all.deb
+6. sudo dpkg -i unifi_sysvinit_all.deb

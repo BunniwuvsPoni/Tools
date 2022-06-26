@@ -7,4 +7,4 @@
 5. Download the latest version: wget [UniFi Network Controller Link]
 6. Install the package: sudo dpkg -i unifi_sysvinit_all.deb
 7. Restart the OS: sudo shutdown -r now
-8. Remove Backup if all looks well
+8. Remove Snapshot if all looks well

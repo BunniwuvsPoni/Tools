@@ -8,3 +8,6 @@
 
 ## Install updates
 - Install-WindowsUpdate
+
+## Update and reboot
+- Get-WindowsUpdate -AcceptAll -Install -AutoReboot

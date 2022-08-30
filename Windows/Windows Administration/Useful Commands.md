@@ -46,4 +46,6 @@
  
 ## Startup Applications
  - Shell:Startup
+  - For your own profile
  - Shell:Common Startup
+  - For all profiles

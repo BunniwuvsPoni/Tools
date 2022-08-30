@@ -43,3 +43,7 @@
  
 ## Get remote computer Name and Boot Time
  * .\systeminfo.exe /s (Remote Computer Name) | findstr /C:"Host Name:" /C:"Boot Time:"
+ 
+## Startup Applications
+ - Shell:Startup
+ - Shell:Common Startup

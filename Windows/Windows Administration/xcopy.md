@@ -2,6 +2,8 @@
 
 https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy
 
+Note: Use Robocopy whenever possible...
+
 ## Command:
 xcopy [Source] [Destination] /e /v /f
 

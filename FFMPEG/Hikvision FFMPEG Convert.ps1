@@ -31,8 +31,8 @@ $logUpdated = $convertedDirectory + $log
 
 # Log initialization
 $dateStarted = date
-Write-Output "Conversion started: " $dateStarted | Out-File -FilePath $logUpdated -Append
-Write-Output "Working directory is:" $workingDirectory | Out-File -FilePath $logUpdated -Append
+Write-Output "Conversion started: " $dateStarted | Tee-Object -FilePath $logUpdated -Append
+Write-Output "Working directory is:" $workingDirectory | Tee-Object -FilePath $logUpdated -Append
 
 # Find all .mp4 files
 $filesToConvert = Get-ChildItem -Path $workingDirectory -Filter *.mp4
@@ -41,15 +41,15 @@ $filesToConvert = Get-ChildItem -Path $workingDirectory -Filter *.mp4
 $fileConvert = ""
 $fileConverted = ""
 foreach($file in $filesToConvert) {
-    Write-Output "Converting file:" $file.Name | Out-File -FilePath $logUpdated -Append
+    Write-Output "Converting file:" $file.Name | Tee-Object -FilePath $logUpdated -Append
     $fileConvert = $workingDirectory + "\" + $file.Name
     $fileConverted = $convertedDirectory + "\" + $file.Name
     .\ffmpeg.exe -i $fileConvert $fileConverted
-    Write-Output "Converted file:" $file.Name | Out-File -FilePath $logUpdated -Append
+    Write-Output "Converted file:" $file.Name | Tee-Object -FilePath $logUpdated -Append
 }
 
 # Log completion
 $dateEnded = date
-Write-Output "Converted directory is:" $convertedDirectory | Out-File -FilePath $logUpdated -Append
-Write-Output "Conversion completed: " $dateEnded | Out-File -FilePath $logUpdated -Append
+Write-Output "Converted directory is:" $convertedDirectory | Tee-Object -FilePath $logUpdated -Append
+Write-Output "Conversion completed: " $dateEnded | Tee-Object -FilePath $logUpdated -Append
 Read-Host -Prompt "Press Enter to exit..."

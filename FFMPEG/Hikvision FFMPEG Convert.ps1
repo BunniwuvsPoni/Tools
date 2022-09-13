@@ -1,4 +1,4 @@
-# This script is intended to take a working directory, locate all .mp4 files within that directory, and convert the .mp4 files using FFMPEG outputted into a Converted folder withing said working directory
+# This script is intended to take a working directory, locate all .mp4 files within that directory, and convert the .mp4 files using FFMPEG outputted into a Converted folder within said working directory
 # This is useful for Hikvision .mp4 files that use the H.265 video and G711U audio codec and convert it into a .mp4 file that can be viewed on most media players
 
 # Obtain the working directory
@@ -45,7 +45,7 @@ foreach($file in $filesToConvert) {
     $fileConvert = $workingDirectory + "\" + $file.Name
     $fileConverted = $convertedDirectory + "\" + $file.Name
     .\ffmpeg.exe -i $fileConvert $fileConverted
-    Write-Output "Converted file:" $file.Name | Tee-Object -FilePath $logUpdated -Append
+    Write-Output "File converted:" $file.Name | Tee-Object -FilePath $logUpdated -Append
 }
 
 # Log completion

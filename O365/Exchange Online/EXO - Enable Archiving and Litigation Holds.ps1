@@ -11,4 +11,4 @@ Get-Mailbox -Filter {RecipientTypeDetails -eq "UserMailbox"} | Enable-Mailbox -A
 Get-Mailbox -Filter {RecipientTypeDetails -eq "UserMailbox"} | Set-Mailbox -LitigationHoldEnabled $true
 
 # Display the results
-Get-Mailbox -Filter {RecipientTypeDetails -eq "UserMailbox"} | ft Name, ArchiveStatus, LitigationHoldEnabled
+Get-Mailbox -Filter {RecipientTypeDetails -eq "UserMailbox"} | ft Name, Alias, PrimarySmtpAddress, ArchiveStatus, LitigationHoldEnabled

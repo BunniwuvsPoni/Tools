@@ -1,8 +1,8 @@
 # This script is intended to copy files from directory x to y and remove files after the specified retention period
 
 # Specify the source and destination directories
-$source = "(source)"
-$destination = "(destination)"
+$source = "(source):\"
+$destination = "\\(destination)\"
 
 # Specify the retention periods in days
 $destinationRetention = 365
@@ -23,7 +23,7 @@ Write-Output "Source files deleted." | Tee-Object -FilePath $log -Append
 # Delete files older than $destinationRetention days in $destination
 Write-Output "Deleting the following files that are older than (x) day(s) " $destinationRetention | Tee-Object -FilePath $log -Append
 Get-ChildItem -Path $destination -Recurse | Where-Object {($_.LastWriteTime -lt (Get-Date).AddDays(-$destinationRetention))} | Tee-Object -FilePath $log -Append
-Get-ChildItem -Path $destination -Recurse | Where-Object {($_.LastWriteTime -lt (Get-Date).AddDays(-$destinationRetention))} | Remove-Item
+Get-ChildItem -Path $destination -Recurse | Where-Object {($_.LastWriteTime -lt (Get-Date).AddDays(-$destinationRetention))} | Remove-Item -Recurse -Force -Confirm:$false
 Write-Output "Files, if any, deleted." | Tee-Object -FilePath $log -Append
 
 

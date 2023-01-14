@@ -32,7 +32,7 @@ if($readhost -eq 'n'){
 
 ###
 
-# User selects the folder where the PDFs are located
+# User selects the folder where the files are located
 Add-Type -AssemblyName System.Windows.Forms
 $browser = New-Object System.Windows.Forms.FolderBrowserDialog
 $null = $browser.ShowDialog()

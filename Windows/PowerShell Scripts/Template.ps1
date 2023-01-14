@@ -11,7 +11,9 @@
 
 #>
 
-# Required parameters to process O365 permissions change
+###
+
+# Required parameters to process [function]
 param(
     [Parameter(Mandatory=$true)][string]$<param>
     )

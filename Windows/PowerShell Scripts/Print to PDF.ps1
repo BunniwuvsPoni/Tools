@@ -63,9 +63,12 @@ foreach ($PDF in $PDFs) {
         Start-Sleep -Seconds 1
     }
     
+    # Wait x seconds for default output file to write to disk
+    Start-Sleep -Seconds 1
+
     # Closes the default PDF viewer so that the copy function can continue
     Stop-Process -Name $defaultPDFViewer
-        
+    
     # Copies the outputed PDF to the Output folder
     Copy-Item $defaultPDFOutputName $MicrosoftPrintToPDFFileName -Force
     

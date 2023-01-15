@@ -7,3 +7,27 @@
 5. Auto upgrade AP firmware set to off
 6. Auto optimize netowrk set to off
 7. High performance devices set to off
+
+---
+
+AP Power Levels
+	- Applies when you have more than one AP with potential overlap in coverage
+	- Lower is better to avoid interference
+
+AP Channels
+	- When needed, try to assign non-overlapping channels to avoid interference
+	- Auto is preferred since it will try to pick the best channel available but in certain circumstances, it might be better to go with manual settings (assuming your environment never changes…)
+
+Smart Queues
+	- For when download/upload traffic exceeds download/upload link
+	- Tries to share the available bandwidth "fairly" among clients
+	- May result in slower router performance
+	- Only turn on if you have < 100/10 mbps link
+
+WiFi Ai
+	- Wi-Fi AI uses your access points to determine the best and optimum channel configuration based on traffic, deployment size, density and client factors. You should choose a time to run when most WiFi clients are not around
+	- Leave turned off, causes more issues that it solves
+	
+PMF
+	- Protected Management Frames
+Leave turned off as most devices don't even support this

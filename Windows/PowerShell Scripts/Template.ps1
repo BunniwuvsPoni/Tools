@@ -46,7 +46,7 @@ if ([string]::IsNullOrEmpty($folders)) {
 }
 
 # Verify the folder exists and if not, creates it
-$folderPath = "C:\"
+$folderPath = "C:\Output"
 if (!(Test-Path -Path $folderPath)) {
     mkdir $folderPath
 }

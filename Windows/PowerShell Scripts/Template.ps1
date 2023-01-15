@@ -44,3 +44,9 @@ if ([string]::IsNullOrEmpty($folders)) {
     Read-Host -Prompt “Press ENTER to continue...”
     exit
 }
+
+# Verify the folder exists and if not, creates it
+$folderPath = "C:\"
+if (!(Test-Path -Path $folderPath)) {
+    mkdir $folderPath
+}

@@ -1,6 +1,14 @@
 # How to update UniFi Network Controller on Debian
 
 1. Snapshot your VM
+
+## Option #1
+2. apt update
+3. apt upgrade
+4. Restart the OS: sudo shutdown -r now
+5. Remove Snapshot if all looks well
+
+## Option #2
 2. Check and get the latest version of UniFi Network Controller: https://www.ui.com/download/unifi
 3. Ensure the system is up to date using: sudo apt update && sudo apt full-upgrade
 4. Switch to the temporary directory: cd /tmp/

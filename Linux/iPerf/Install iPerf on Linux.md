@@ -24,6 +24,8 @@ WantedBy=multi-user.target
 
 ---
 
-In a difference client use iPerf to test network speeds
+In a different client use iPerf to test network speeds
+
 .\iperf3.exe -c (IP) -R
+
 -R to reverse connection

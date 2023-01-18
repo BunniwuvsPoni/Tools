@@ -19,4 +19,11 @@ WantedBy=multi-user.target
 ---
 
 4. Enable the service (sudo systemctl enable iperf3)
-5. Start the service (service iperf3 start)
+5. Start the service (sudo service iperf3 start)
+
+
+---
+
+In a difference client use iPerf to test network speeds
+.\iperf3.exe -c (IP) -R
+-R to reverse connection

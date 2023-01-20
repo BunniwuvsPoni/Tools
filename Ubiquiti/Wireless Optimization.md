@@ -6,7 +6,7 @@ As always, wired offers more capacity and reliability than wireless.
 Wired - nearly full gigabit speeds
 Wireless - depending on wireless network congestion
 2.4Ghz - <100Mbps
-5Ghz - <300Mbps
+5Ghz - typically >100Mbps but <300Mbps
 
 ---
 

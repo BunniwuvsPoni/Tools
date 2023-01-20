@@ -1,4 +1,4 @@
-# Ubiquiti Wireless Optimization
+# Ubiquiti Wireless Optimization (for Single/Multi-AP deployments)
 
 Note:
 

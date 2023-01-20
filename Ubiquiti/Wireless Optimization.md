@@ -1,22 +1,29 @@
 # Ubiquiti Wireless Optimization
 
-1. Wireless site survey
-2. (Settings -> WiFi -> Global AP Settings) - Power set to low (Auto just means High)
-3. (Settings -> WiFi -> Global AP Settings) - Channel width: 2.4Ghz @ 20Mhz & 5Ghz @ 40Mhz
-4. (Per AP setting) - Non-overlapping channel selection: 2.4Ghz (1, 6, and 11) & 5Ghz (36, 44, 149, and 157 [do not use DFA channels, using 5 GHz Wi-Fi frequencies that are generally reserved for radar, such as military radar, satellite communication, and weather radar])
-5. (Setting -> System -> Updates) - Auto upgrade AP firmware set to off
-6. (Settings -> WiFi -> Nightly Channel Optimization) - Auto optimize network set to off
-7. (Settings -> WiFi -> SSID (Legacy menu)) - High performance devices set to off
+Note:
+As always, wired offers more capacity and reliability than wireless
+
+1. Wireless site survey (nothing beats an onsite Wi-Fi survey)
+2. Tx power: (2.4Ghz - Low) (5Ghz - High)
+3. Channel width: (2.4Ghz - 20Mhz) (5Ghz - 40Mhz)
+4. Non-overlapping channel selection: (2.4Ghz - 1, 6, and 11) (5Ghz - 36, 44, 149, and 157)
+5. Auto upgrade AP firmware set to off
+6. Auto optimize network set to off
+7. High performance devices set to off
 
 ---
 
+Wireless Bands
+	- 5Ghz or higher is the peferred connection due to available capacity
+	- 2.4Ghz - better range, penetration, and compatibility
+	- 5Ghz - better bandwith/capacity due to less congestion
+
 AP Power Levels
-	- Applies when you have more than one AP with potential overlap in coverage
-	- Lower is better to avoid interference
+	- Set 5Ghz or higher to a higher Tx power level than the 2.4Ghz to give devices a better chance to connect to the less crowded wireless band
 
 AP Channels
-	- When needed, try to assign non-overlapping channels to avoid interference
-	- Auto is preferred since it will try to pick the best channel available but in certain circumstances, it might be better to go with manual settings (assuming your environment never changes…)
+	- Try to assign non-overlapping channels to avoid interference
+	- Do NOT use DFA channels, using 5 GHz Wi-Fi frequencies that are generally reserved for radar, such as military radar, satellite communication, and weather radar
 
 Smart Queues
 	- For when download/upload traffic exceeds download/upload link
@@ -29,5 +36,4 @@ WiFi Ai
 	- Leave turned off, causes more issues that it solves
 	
 PMF
-	- Protected Management Frames
-Leave turned off as most devices don't even support this
+	- Protected Management Frames, leave turned off as most devices don't even support this

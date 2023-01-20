@@ -45,7 +45,7 @@ AP Channels
 
 Devices consideration
 
-	- Not all devices/wireless cards are equal, often times an iPhone will produce much better bandwidth numbers than laptops even thought they both are compliant with the wireless standard
+	- Not all devices/wireless cards are equal, often times an iPhone will produce much better bandwidth numbers than laptops even thought they both are compliant with the same wireless standard
 
 Smart Queues
 

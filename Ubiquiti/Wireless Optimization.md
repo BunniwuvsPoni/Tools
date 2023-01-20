@@ -43,7 +43,9 @@ AP Channels
 	- Try to assign non-overlapping channels to avoid interference
 	- Do NOT use DFA channels, using 5 GHz Wi-Fi frequencies that are generally reserved for radar, such as military radar, satellite communication, and weather radar
 
-Devices consideration, not all devices/wireless cards are equal, often times an iPhone will produce much better bandwidth numbers than laptops even thought they both are compliant with the wireless standard
+Devices consideration
+
+	- Not all devices/wireless cards are equal, often times an iPhone will produce much better bandwidth numbers than laptops even thought they both are compliant with the wireless standard
 
 Smart Queues
 

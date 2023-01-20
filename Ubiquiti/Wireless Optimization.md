@@ -10,9 +10,11 @@ As always, wired offers more capacity and reliability than wireless
 2. Tx power: (2.4Ghz - Low) (5Ghz - High)
 3. Channel width: (2.4Ghz - 20Mhz) (5Ghz - 40Mhz)
 4. Non-overlapping channel selection: (2.4Ghz - 1, 6, and 11) (5Ghz - 36, 44, 149, and 157)
-5. High performance devices set to off
-6. Auto optimize network set to off
-7. Auto upgrade AP firmware set to off
+5. Fast roaming set to off
+6. High performance devices set to off
+7. PMF set to off
+8. Auto optimize network set to off
+9. Auto upgrade AP firmware set to off
 
 ---
 

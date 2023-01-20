@@ -1,6 +1,7 @@
 # Ubiquiti Wireless Optimization
 
 Note:
+
 As always, wired offers more capacity and reliability than wireless
 
 1. Wireless site survey (nothing beats an onsite Wi-Fi survey)

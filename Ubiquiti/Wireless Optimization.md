@@ -12,6 +12,22 @@ Wireless - depending on wireless network congestion
 
 5Ghz - typically >100Mbps but <300Mbps
 
+--
+
+Signal strength
+
+Aim for -30 dBm at the access point and at least -67 dBm at the edge of where you want network access.
+
+https://www.netspotapp.com/wifi-signal-strength
+
+https://www.metageek.com/training/resources/understanding-rssi/
+
+Bandwidth
+
+Try to have at least 50 Mbps symmetrical for a decent experience.
+
+https://www.synopi.com/bandwidth-required-for-hd-fhd-4k-video
+
 ---
 
 1. Wireless site survey (nothing beats an onsite Wi-Fi survey)

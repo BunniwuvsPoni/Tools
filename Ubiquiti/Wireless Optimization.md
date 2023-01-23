@@ -24,7 +24,7 @@ https://www.metageek.com/training/resources/understanding-rssi/
 
 Bandwidth
 
-Try to have at least 50 Mbps symmetrical for a decent experience.
+Try to have at least 50 Mbps symmetrical for a decent 4K experience.
 
 https://www.synopi.com/bandwidth-required-for-hd-fhd-4k-video
 

@@ -3,7 +3,7 @@
 # 2. Locate all .mp4 files within that directory (does not go into subfolders)
 # 3. Convert the .mp4 files using FFMPEG outputted into a Converted folder within said working directory
 # 4. 1st pass the .mp4 files using Auto-Editor to remove silence/dead space into a 1st Pass folder within said working directory
-# 5. Normalize the loudness of the 1st pass .mp4 files using FFMPEG into a Ready for Production folder within said working directory
+# 5. Normalize the loudness of the 1st pass .mp4 files using FFMPEG-Normalization into a Ready for Production folder within said working directory
 
 # This is useful for Hikvision .mp4 files that use the H.265 video and G711U audio codec and convert it into a .mp4 file that can be viewed on most media players
 

@@ -44,8 +44,8 @@ $fileConvert = ""
 $fileConverted = ""
 foreach($file in $filesToConvert) {
     $startConvert = date
-    Write-Output "Converting file: " $file.Name | Tee-Object -FilePath $logFilePath -Append
-    Write-Output "Converting file start time: " $startConvert | Tee-Object -FilePath $logFilePath -Append
+    Write-Output "Converting file: " $file.Name | Tee-Object -FilePath $logUpdated -Append
+    Write-Output "Converting file start time: " $startConvert | Tee-Object -FilePath $logUpdated -Append
     
     $fileConvert = $workingDirectory + "\" + $file.Name
     $fileConverted = $convertedDirectory + "\" + $file.Name
@@ -53,15 +53,15 @@ foreach($file in $filesToConvert) {
     ffmpeg.exe -i $fileConvert $fileConverted
     
     $endConvert = date
-    Write-Output "File converted: " $file.Name | Tee-Object -FilePath $logFilePath -Append
-    Write-Output "File converted end time: " $endConvert | Tee-Object -FilePath $logFilePath -Append
+    Write-Output "File converted: " $file.Name | Tee-Object -FilePath $logUpdated -Append
+    Write-Output "File converted end time: " $endConvert | Tee-Object -FilePath $logUpdated -Append
     $diffConvert = $endConvert - $startConvert
-    Write-Output "File converted total time (minutes): " $diffConvert.TotalMinutes | Tee-Object -FilePath $logFilePath -Append
+    Write-Output "File converted total time (minutes): " $diffConvert.TotalMinutes | Tee-Object -FilePath $logUpdated -Append
 }
 
 # Log completion
 $dateEnded = date
 $totalDuration = $dateEnded - $dateStarted
-Write-Output "Conversion completed: " $dateEnded | Tee-Object -FilePath $logFilePath -Append
-Write-Output "Total time taken (minutes): " $totalDuration.TotalMinutes | Tee-Object -FilePath $logFilePath -Append
+Write-Output "Conversion completed: " $dateEnded | Tee-Object -FilePath $logUpdated -Append
+Write-Output "Total time taken (minutes): " $totalDuration.TotalMinutes | Tee-Object -FilePath $logUpdated -Append
 Read-Host -Prompt "Press Enter to exit..."

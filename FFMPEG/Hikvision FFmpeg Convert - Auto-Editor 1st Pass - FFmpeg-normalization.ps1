@@ -24,7 +24,7 @@
 
 # Variables declaration
 # Auto-Editor --Margin setting
-$autoEditorMargin = "8" + "sec"
+$autoEditorMargin = "0.5" + "sec"
 
 # Log file name
 $log = "\Conversion Log.txt"

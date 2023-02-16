@@ -34,6 +34,7 @@ $logUpdated = $convertedDirectory + $log
 $dateStarted = date
 Write-Output "Conversion started: " $dateStarted | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Working directory is:" $workingDirectory | Tee-Object -FilePath $logUpdated -Append
+Write-Output "Converted directory is:" $convertedDirectory | Tee-Object -FilePath $logUpdated -Append
 
 # Find all .mp4 files
 $filesToConvert = Get-ChildItem -Path $workingDirectory -Filter *.mp4
@@ -42,15 +43,25 @@ $filesToConvert = Get-ChildItem -Path $workingDirectory -Filter *.mp4
 $fileConvert = ""
 $fileConverted = ""
 foreach($file in $filesToConvert) {
-    Write-Output "Converting file:" $file.Name | Tee-Object -FilePath $logUpdated -Append
+    $startConvert = date
+    Write-Output "Converting file: " $file.Name | Tee-Object -FilePath $logFilePath -Append
+    Write-Output "Converting file start time: " $startConvert | Tee-Object -FilePath $logFilePath -Append
+    
     $fileConvert = $workingDirectory + "\" + $file.Name
     $fileConverted = $convertedDirectory + "\" + $file.Name
+    
     ffmpeg.exe -i $fileConvert $fileConverted
-    Write-Output "File converted:" $file.Name | Tee-Object -FilePath $logUpdated -Append
+    
+    $endConvert = date
+    Write-Output "File converted: " $file.Name | Tee-Object -FilePath $logFilePath -Append
+    Write-Output "File converted end time: " $endConvert | Tee-Object -FilePath $logFilePath -Append
+    $diffConvert = $endConvert - $startConvert
+    Write-Output "File converted total time (minutes): " $diffConvert.TotalMinutes | Tee-Object -FilePath $logFilePath -Append
 }
 
 # Log completion
 $dateEnded = date
-Write-Output "Converted directory is:" $convertedDirectory | Tee-Object -FilePath $logUpdated -Append
-Write-Output "Conversion completed: " $dateEnded | Tee-Object -FilePath $logUpdated -Append
+$totalDuration = $dateEnded - $dateStarted
+Write-Output "Conversion completed: " $dateEnded | Tee-Object -FilePath $logFilePath -Append
+Write-Output "Total time taken (minutes): " $totalDuration.TotalMinutes | Tee-Object -FilePath $logFilePath -Append
 Read-Host -Prompt "Press Enter to exit..."

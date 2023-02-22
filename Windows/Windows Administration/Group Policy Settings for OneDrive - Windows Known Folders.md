@@ -25,3 +25,7 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 Arguments:
 
 -executionpolicy bypass -file "(file path)"
+
+Remember to check off:
+
+"Run in logged-on user's security context (user policy option)"

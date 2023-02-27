@@ -10,6 +10,8 @@ param(
 $password = "<Default password>"
 $organizationalUnit = "OU=<ou>,DC=<domain>,DC=<tld>"
 $group = "<Desired group>"
+$groupAllStaff = "All Staff"
+$groupRDSUsers = "RDS Users"
 $office = "<Office>"
 $homePage = "<Website>"
 $officePhone = "<Office phone>"
@@ -71,8 +73,10 @@ if ($confirmation -eq 'y') {
     # Sets new AD user properties
     Set-ADUser $username -replace @{ProxyAddresses=$proxyAddresses -split ","}
 
-    # Add new user to group
+    # Add new user to group(s)
     Add-ADGroupMember -Identity $group -Members $username
+    Add-ADGroupMember -Identity $groupAllStaff -Members $username
+    Add-ADGroupMember -Identity $groupRDSUsers -Members $username
 
     # Enable new AD user
     Enable-ADAccount $username

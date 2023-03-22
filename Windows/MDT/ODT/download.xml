@@ -1,0 +1,9 @@
+<Configuration>
+  <Add SourcePath="C:\Software\ODT\" OfficeClientEdition="32"> 
+   <Product ID="O365ProPlusRetail" > 
+     <Language ID="en-us" />      
+   </Product>
+  </Add>
+   <Updates Enabled="TRUE" Channel="Current" />
+   <Display Level="None" AcceptEULA="TRUE" />
+</Configuration>

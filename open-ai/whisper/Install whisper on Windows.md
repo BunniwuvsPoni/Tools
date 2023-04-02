@@ -8,3 +8,4 @@
 Run whisper with the following command:
 
 whisper.exe (audio file path)
+whisper audio.flac audio.mp3 audio.wav --model medium

@@ -5,3 +5,4 @@
 - Cut video/audio: ffmpeg.exe -i input.mp4 -ss x -to y -c:v copy -c:a copy output.mp4
   - "-ss x -to y": Start from x to y (format: 00:00:00)
   - "-c:v copy -c:a": Copy the original audio and video without re-encoding
+- Copy and subtitle at the same time: ffmpeg.exe -i input.mp4 -vf subtitles=subtitle.srt -ss x -to y output.mp4

@@ -10,3 +10,7 @@ Run whisper with the following command:
 whisper.exe (audio file path)
 
 whisper audio.flac audio.mp3 audio.wav --model (size) --language (language)
+
+Note:
+
+Add the flag "--fp16 False" if you get the warning: "FP16 is not supported on CPU; using FP32 instead"

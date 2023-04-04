@@ -13,4 +13,6 @@ whisper audio.flac audio.mp3 audio.wav --model (size) --language (language)
 
 Note:
 
+Output files will appear in the same directory the command was run from
+
 Add the flag "--fp16 False" if you get the warning: "FP16 is not supported on CPU; using FP32 instead"

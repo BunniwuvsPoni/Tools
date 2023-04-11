@@ -6,10 +6,11 @@
 		c. Install Python 3.10 for all users
 		d. Install
 	2. Run PowerShell as administrator
-		a. Install whisper: pip install -U openai-whisper
-		b. Run updates: pip freeze | %{$_.split('==')[0]} | %{pip install --upgrade $_}
-		c. Check for outdated packages: pip.exe list --outdated
-		d. Upgrade any outstanding outdated packages: pip.exe install (package) --upgrade
+		a. Run updates: pip freeze | %{$_.split('==')[0]} | %{pip install --upgrade $_}
+		b. Check for outdated packages: pip.exe list --outdated
+		c. Upgrade any outstanding outdated packages: pip.exe install (package) --upgrade
+		d. Install OpenAI - Whisper: pip install -U openai-whisper
+			i. Be sure to install this last as this program's compatibility may require older versions of pip packages similar to it's requirement for python...
 	3. Install Microsoft Visual C++ Redistributable (if required): https://aka.ms/vs/16/release/vc_redist.x64.exe
 	4. Install FFMPEG with PATH configured
 		a. Copy FFMPEG to "C:\Program Files\FFMPEG\"

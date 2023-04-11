@@ -1,5 +1,5 @@
-# Desktop setup process (as at 04/11/2023)
-	1. Install python (v3.10.11)
+# Desktop setup process for Windows 10 (as at 04/11/2023)
+	1. Install python (v3.10.11, OpenAI - Whisper does not currently support newer version of Python...)
 		a. Add python.exe to PATH
 		b. Customize installation
 			i. For all users

@@ -122,6 +122,7 @@ foreach($file in $filesToProcess) {
         $clipStart = $clipStart - $buffer
     }
 
+    # As at 04/11/2023, this seems to be okay as it looks like FFMPEG just skips the extra bit at the end with no content...
     $clipEnd = $clipEnd + $buffer
 
     # Convert clipping time to hh:mm:ss format

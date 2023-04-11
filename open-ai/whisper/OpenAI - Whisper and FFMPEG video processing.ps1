@@ -1,4 +1,4 @@
-# This script is intended to take a working directory -> locate all .mp4 files within that directory -> clip (based on speech recognition, Start & End), convert, loudness normalize, and add subtitles the .mp4 files using FFMPEG & OpenAI's - Whisper
+# This script is intended to take a working directory -> locate all .mp4 files within that directory -> clip (based on speech recognition, Start & End), convert, loudness normalize, and add subtitles to the .mp4 files using FFMPEG & OpenAI's - Whisper
 # Files are expected to be outputted into a number of folders within said working directory
 # This is useful for Hikvision .mp4 files that use the H.265 video and G711U audio codec and convert it into a .mp4 file that can be viewed on most media players
 

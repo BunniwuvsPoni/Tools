@@ -13,6 +13,8 @@
 ### Configuration ###
 # Log file
 $log = "\Log.txt"
+# Verification file
+$verificationLog = "\Verification.txt"
 # Whisper model (speed and accuracy tradeoffs): tiny, base, small, medium, large
 $model = "tiny"
 # Buffer configured in seconds in second.milisecond format
@@ -56,6 +58,10 @@ Write-Output "Processing started: " $dateStarted | Tee-Object -FilePath $logUpda
 Write-Output "Working directory is:" $workingDirectory | Tee-Object -FilePath $logUpdated -Append
 Write-Output "OpenAI-Whisper directory is:" $OpenAIWhisperDirectory | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Processed directory is:" $processedDirectory | Tee-Object -FilePath $logUpdated -Append
+# Verification logging
+$verificationLogUpdated = $OpenAIWhisperDirectory + $verificationLog
+Write-Output "Processing started: " $dateStarted | Tee-Object -FilePath $verificationLogUpdated -Append
+Write-Output "Working directory is:" $workingDirectory | Tee-Object -FilePath $verificationLogUpdated -Append
 
 # Find all .mp4 files
 $filesToProcess = Get-ChildItem -Path $workingDirectory -Filter *.mp4
@@ -104,7 +110,12 @@ foreach($file in $filesToProcess) {
 
     # Add buffer to time
     # Accounting for words at the very start of the session...
-    if ($clipStart -eq "" -or $clipStart -le $buffer)
+    if ($clipStart -eq "" -or $clipEnd -eq "")
+    {
+        Write-Output "Error encountered: (" $file.Name ") does not have a valid Start or End time, please see your local administrator for assistance..." | Tee-Object -FilePath $logUpdated -Append
+        Read-Host -Prompt "Press Enter to exit..."
+        exit    
+    } elseif ($clipStart -le $buffer)
     {
         $clipStart = "0.0" # Start time shouldn't have a negative value...
     } else {
@@ -127,6 +138,10 @@ foreach($file in $filesToProcess) {
     Write-Output "FFMPEG Processing start time: " $startFFMPEGProcessing | Tee-Object -FilePath $logUpdated -Append
     Write-Output "Clipping start time: " $clipStartFormatted | Tee-Object -FilePath $logUpdated -Append
     Write-Output "Clipping end time: " $clipEndFormatted | Tee-Object -FilePath $logUpdated -Append
+
+    # Verification logging
+    Write-Output "Clipping start time: " $clipStartFormatted | Tee-Object -FilePath $verificationLogUpdated -Append
+    Write-Output "Clipping end time: " $clipEndFormatted | Tee-Object -FilePath $verificationLogUpdated -Append
 
     # FFMPEG
     $fileProcess = $workingDirectory + "\" + $file.Name
@@ -157,5 +172,7 @@ foreach($file in $filesToProcess) {
 $dateEnded = date
 $totalDuration = $dateEnded - $dateStarted
 Write-Output "Processing completed: " $dateEnded | Tee-Object -FilePath $logUpdated -Append
+# Verification logging
+Write-Output "Processing completed: " $dateEnded | Tee-Object -FilePath $verificationLogUpdated -Append
 Write-Output "Total time taken (minutes): " $totalDuration.TotalMinutes | Tee-Object -FilePath $logUpdated -Append
 Read-Host -Prompt "Press Enter to exit..."

@@ -154,6 +154,9 @@ foreach($file in $filesToProcess) {
     # Conversion, clipping (-ss xx:xx:xx -to yy:yy:yy), adding subtitles (-vf subtitles=subtitle.srt), and Loudness Normalization (-filter:a loudnorm) happens here
     ffmpeg.exe -i $fileProcess -ss $clipStartFormatted -to $clipEndFormatted -filter:a loudnorm -vf subtitles=$OpenAIWhisperSRTPath $fileProcessed
 
+    # Copy .srt to a .txt file
+    Copy-Item $OpenAIWhisperSRTPath $copySRTToTXT
+
     # Move OpenAI-Whisper output files (.json, .srt, .tsv, .txt, .vtt) to the OpenAI-Whisper directory
     Get-ChildItem -Filter *.json | Move-Item -Destination $OpenAIWhisperDirectory
     Get-ChildItem -Filter *.srt | Move-Item -Destination $OpenAIWhisperDirectory

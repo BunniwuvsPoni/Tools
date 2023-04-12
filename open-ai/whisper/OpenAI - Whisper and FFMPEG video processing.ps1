@@ -158,12 +158,15 @@ foreach($file in $filesToProcess) {
     Get-ChildItem -Filter *.tsv | Move-Item -Destination $OpenAIWhisperDirectory
     Get-ChildItem -Filter *.txt | Move-Item -Destination $OpenAIWhisperDirectory
     Get-ChildItem -Filter *.vtt | Move-Item -Destination $OpenAIWhisperDirectory
-        
+    
+    # Log file completion    
     $endProcessed = date
     Write-Output "File processed: " $file.Name | Tee-Object -FilePath $logUpdated -Append
     Write-Output "File processed end time: " $endProcessed | Tee-Object -FilePath $logUpdated -Append
     $diffProcess = $endProcessed - $startOpenAIWhisperProcessing
     Write-Output "File total processing time (minutes): " $diffProcess.TotalMinutes | Tee-Object -FilePath $logUpdated -Append
+    # Verification log file completion
+    Write-Output "File processed: " $file.Name | Tee-Object -FilePath $verificationLogUpdated -Append
 
     # Reset clipping start and end times
     $clipStart = ""

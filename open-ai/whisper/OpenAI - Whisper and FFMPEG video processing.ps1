@@ -133,6 +133,8 @@ foreach($file in $filesToProcess) {
 
     # Sets the .srt file name
     $OpenAIWhisperSRTPath = $file.BaseName + ".srt"
+    # Sets the copied .srt .txt file path
+    $copySRTToTXT = $processedDirectory + "\" + $OpenAIWhisperSRTPath + ".txt"
 
     # Logs clipping start and end time(s)
     $startFFMPEGProcessing = date

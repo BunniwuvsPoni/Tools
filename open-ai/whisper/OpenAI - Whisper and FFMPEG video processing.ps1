@@ -96,9 +96,18 @@ foreach($file in $filesToProcess) {
     # Imports .json into PowerShell
     $OpenAIWhisperJSON = Get-Content -Raw -Path $OpenAIWhisperJSONPath  | ConvertFrom-Json
 
+    # Set .json detailed export file name
+    $OpenAIWhisperJSONToTXT = $OpenAIWhisperDirectory + "\" + $file.BaseName + " - Detailed.txt"
+    
+    # Log start of detailed export
+    Write-Output "OpenAI-Whisper JSON to TXT file: " $file.BaseName | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+
     # Calculates the clipping start and end points based on the configured no speech probability value
     foreach ($segment in $OpenAIWhisperJSON.segments)
     {
+        # Log JSON Details to TXT for human readability
+        Write-Output "ID: " $segment.id " / No Speech Probability: " $segment.no_speech_prob " / Start (seconds): " $segment.start " / End (seconds): " $segment.end " / Text: " $segment.text | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+                
         if ($segment.no_speech_prob -le $noSpeechProbability)
         {
             if ($clipStart -eq "")
@@ -110,6 +119,9 @@ foreach($file in $filesToProcess) {
             }
         }
     }
+
+    # Log end of detailed export
+    Write-Output "OpenAI-Whisper JSON to TXT file export completed." | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
 
     # Add buffer to time
     # Accounting for words at the very start of the session...

@@ -58,6 +58,9 @@ Write-Output "Processing started: " $dateStarted | Tee-Object -FilePath $logUpda
 Write-Output "Working directory is:" $workingDirectory | Tee-Object -FilePath $logUpdated -Append
 Write-Output "OpenAI-Whisper directory is:" $OpenAIWhisperDirectory | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Processed directory is:" $processedDirectory | Tee-Object -FilePath $logUpdated -Append
+Write-Output "OpenAI-Whisper Model is:" $model | Tee-Object -FilePath $logUpdated -Append
+Write-Output "Buffer in seconds.miliseconds is:" $buffer | Tee-Object -FilePath $logUpdated -Append
+Write-Output "No Speech Probablility cutoff (percent out of one) is:" $noSpeechProbability | Tee-Object -FilePath $logUpdated -Append
 # Verification logging
 $verificationLogUpdated = $OpenAIWhisperDirectory + $verificationLog
 Write-Output "Processing started: " $dateStarted | Tee-Object -FilePath $verificationLogUpdated -Append

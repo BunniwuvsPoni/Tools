@@ -105,8 +105,12 @@ foreach($file in $filesToProcess) {
     # Calculates the clipping start and end points based on the configured no speech probability value
     foreach ($segment in $OpenAIWhisperJSON.segments)
     {
-        # Log JSON Details to TXT for human readability
-        Write-Output "ID: " $segment.id " / No Speech Probability: " $segment.no_speech_prob " / Start (seconds): " $segment.start " / End (seconds): " $segment.end " / Text: " $segment.text | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+        # Convert JSON Details to TXT for human readability
+        Write-Output "ID: " $segment.id | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+        Write-Output "No Speech Probability: " $segment.no_speech_prob | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+        Write-Output "Start (seconds): " $segment.start | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+        Write-Output "End (seconds): " $segment.end | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+        Write-Output "Text: " $segment.text | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
                 
         if ($segment.no_speech_prob -le $noSpeechProbability)
         {

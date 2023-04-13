@@ -114,6 +114,10 @@ foreach($file in $filesToProcess) {
                 
         if ($segment.no_speech_prob -le $noSpeechProbability)
         {
+            # Log match of No Speech Probability check
+            Write-Output "No Speech Probability: MATCH" | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+
+            # Sets Clip Start/End variables
             if ($clipStart -eq "")
             {
                 $clipStart = $segment.start

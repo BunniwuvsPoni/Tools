@@ -28,9 +28,11 @@ $language = "English"
 $buffer = "5.0"
 # No Speech Probability cutoff
 $noSpeechProbability = "0.8"
-# Exceptions (Note: Add the wildcard "*" to the beginning and end of the exception)
+# Exceptions
+# Note: Add the wildcard "*" to the beginning and end of the exception
+# Note: No periods
 # Automatically played 5 minutes remaining notification
-$5MinutesRemaining = "*There is five minutes remaining for this question.*"
+$5MinutesRemaining = "*There is five minutes remaining for this question*"
 ### Configuration ###
 
 # Obtain the working directory for the video files
@@ -135,7 +137,7 @@ foreach($file in $filesToProcess) {
     $OpenAIWhisperJSONToTXT = $logDirectory + "\" + $file.BaseName + " - Detailed.txt"
     
     # Log start of detailed export
-    Write-Output "OpenAI-Whisper JSON to TXT file: " $file.BaseName | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+    Write-Output "OpenAI-Whisper JSON to TXT file: " $file.Name | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
 
     # Calculates the clipping start and end points based on the configured no speech probability value
     foreach ($segment in $OpenAIWhisperJSON.segments)

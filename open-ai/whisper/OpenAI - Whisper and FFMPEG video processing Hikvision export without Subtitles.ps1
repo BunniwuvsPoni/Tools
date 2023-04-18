@@ -2,9 +2,6 @@
 # -> take a working directory
 # -> locate all .mp4 files within that directory
 # -> clip (based on automatic speech recognition, Start & End), encode, and loudness normalize using FFMPEG & OpenAI's - Whisper
-###
-# No Longer... -> encode, loudness normalize, and add subtitles to the .mp4 files using FFMPEG & OpenAI's - Whisper
-###
 
 # Files are expected to be outputted into a number of folders within said working directory
 # This is useful for Hikvision .mp4 files that use the H.265 video and G711U audio codec and convert it into a .mp4 file that can be viewed on most media players
@@ -58,33 +55,12 @@ If(!(test-path -PathType container $OpenAIWhisperDirectory))
       New-Item -ItemType Directory -Path $OpenAIWhisperDirectory
 }
 
-### Removing due to not required for business purposes... ###
-<#
-# Create "OpenAI-Whisper_Clipped" directory
-$OpenAIWhisperClippedDirectory = $workingDirectory + "\OpenAI-Whisper_Clipped"
-If(!(test-path -PathType container $OpenAIWhisperClippedDirectory))
-{
-      New-Item -ItemType Directory -Path $OpenAIWhisperClippedDirectory
-}
-#>
-###
-
 # Create "Processed" directory
 $processedDirectory = $workingDirectory + "\Processed"
 If(!(test-path -PathType container $processedDirectory))
 {
       New-Item -ItemType Directory -Path $processedDirectory
 }
-
-### Removing due to not required for business purposes... ###
-<#
-# Create "Ready" directory
-$readyDirectory = $workingDirectory + "\Ready"
-If(!(test-path -PathType container $readyDirectory))
-{
-      New-Item -ItemType Directory -Path $readyDirectory
-}
-#>
 
 # Create "Log" directory
 $logDirectory = $workingDirectory + "\Log"
@@ -99,9 +75,7 @@ $dateStarted = date
 Write-Output "Processing started: " $dateStarted | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Working directory is: " $workingDirectory | Tee-Object -FilePath $logUpdated -Append
 Write-Output "OpenAI-Whisper directory is: " $OpenAIWhisperDirectory | Tee-Object -FilePath $logUpdated -Append
-#Write-Output "OpenAI-Whisper_Clipped directory is: " $OpenAIWhisperClippedDirectory | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Processed directory is: " $processedDirectory | Tee-Object -FilePath $logUpdated -Append
-#Write-Output "Ready directory is: " $readyDirectory | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Log directory is: " $logDirectory | Tee-Object -FilePath $logUpdated -Append
 Write-Output "OpenAI-Whisper Model is: " $model | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Buffer in seconds.miliseconds is: " $buffer | Tee-Object -FilePath $logUpdated -Append
@@ -218,7 +192,6 @@ foreach($file in $filesToProcess) {
     # FFMPEG input/output file paths
     $fileProcess = $workingDirectory + "\" + $file.Name
     $fileProcessed = $processedDirectory + "\" + $file.Name
-    #$fileReady = $readyDirectory + "\" + $file.Name
     
     # Encoding, clipping (-ss xx:xx:xx -to yy:yy:yy), and Loudness Normalization (-filter:a loudnorm)
     ffmpeg.exe -i $fileProcess -ss $clipStartFormatted -to $clipEndFormatted -filter:a loudnorm $fileProcessed
@@ -233,48 +206,6 @@ foreach($file in $filesToProcess) {
     # Logs FFMPEG clipping end time
     $endFFMPEGProcessClipping = date
     Write-Output "FFMPEG Processing Clipping end time: " $endFFMPEGProcessClipping | Tee-Object -FilePath $logUpdated -Append
-
-    ### Removing due to not required for business purposes... ###
-    <#
-    # Run clipped file through OpenAI-Whisper to get updated time stamp on .srt export
-    # OpenAI - Whisper clipped file logging
-    $startOpenAIWhisperProcessingClipped = date
-    Write-Output "OpenAI-Whisper processing clipped file: " $fileProcessed | Tee-Object -FilePath $logUpdated -Append
-    Write-Output "OpenAI-Whisper processing clipped file start time: " $startOpenAIWhisperProcessingClipped | Tee-Object -FilePath $logUpdated -Append
-       
-    # OpenAI-Whisper processing, Floating Point 16 -> 32, slower but more accurate results, 16 vs 32 bits, also seems like not a lot of CPUs support FP16...
-    whisper.exe $fileProcessed --model $model --language $language --fp16 False
-
-    # OpenAI - Whisper clipped file logging
-    $endOpenAIWhisperProcessingClipped = date
-    Write-Output "OpenAI-Whisper processed clipped file end time: " $endOpenAIWhisperProcessingClipped | Tee-Object -FilePath $logUpdated -Append
-
-    # Sets the .srt file name
-    $OpenAIWhisperSRTPath = $file.BaseName + ".srt"
-    # Sets the copied .srt .txt file path
-    $copySRTToTXT = $readyDirectory + "\" + $OpenAIWhisperSRTPath + ".txt"
-
-    # Logs FFMPEG processing (subtitles and loudness normalization) start time
-    $startFFMPEGProcessProduction = date
-    Write-Output "FFMPEG Processing Loudness Normalization and Subtitles start time: " $startFFMPEGProcessProduction | Tee-Object -FilePath $logUpdated -Append
-
-    # Encoding, adding subtitles (-vf subtitles=subtitle.srt), and Loudness Normalization (-filter:a loudnorm)
-    ffmpeg.exe -i $fileProcessed -filter:a loudnorm -vf subtitles=$OpenAIWhisperSRTPath $fileReady
-
-    # Copy .srt to a .txt file
-    Copy-Item $OpenAIWhisperSRTPath $copySRTToTXT
-    
-    # Move OpenAI-Whisper output files (.json, .srt, .tsv, .txt, .vtt) to the OpenAI-Whisper_Clipped directory
-    Get-ChildItem -Filter *.json | Move-Item -Destination $OpenAIWhisperClippedDirectory
-    Get-ChildItem -Filter *.srt | Move-Item -Destination $OpenAIWhisperClippedDirectory
-    Get-ChildItem -Filter *.tsv | Move-Item -Destination $OpenAIWhisperClippedDirectory
-    Get-ChildItem -Filter *.txt | Move-Item -Destination $OpenAIWhisperClippedDirectory
-    Get-ChildItem -Filter *.vtt | Move-Item -Destination $OpenAIWhisperClippedDirectory
-
-    # Logs FFMPEG processing (subtitles and loudness normalization) start time
-    $endFFMPEGProcessProduction = date
-    Write-Output "FFMPEG Processing Loudness Normalization and Subtitles end time: " $endFFMPEGProcessProduction | Tee-Object -FilePath $logUpdated -Append
-    #>
 
     # Log file completion    
     $endProcessed = date
@@ -294,7 +225,6 @@ foreach($file in $filesToProcess) {
 $dateEnded = date
 $totalDuration = $dateEnded - $dateStarted
 Write-Output "Processing completed: " $dateEnded | Tee-Object -FilePath $logUpdated -Append
-# Verification logging
-Write-Output "Processing completed: " $dateEnded | Tee-Object -FilePath $verificationLogUpdated -Append
+Write-Output "Processing completed: " $dateEnded | Tee-Object -FilePath $verificationLogUpdated -Append # Verification logging
 Write-Output "Total time taken (minutes): " $totalDuration.TotalMinutes | Tee-Object -FilePath $logUpdated -Append
 Read-Host -Prompt "Press Enter to exit..."

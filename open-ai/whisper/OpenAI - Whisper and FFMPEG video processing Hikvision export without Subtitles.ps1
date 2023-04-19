@@ -31,7 +31,9 @@ $noSpeechProbability = "0.8"
 # Note: Add the wildcard "*" to the beginning and end of the exception
 # Note: No periods
 # Automatically played 5 minutes remaining notification
-$5MinutesRemaining = "*There is five minutes remaining for this question*"
+$exception5MinutesRemaining = "*five minutes remaining*"
+# "You" filler text at the beginning when there's no speech
+$exceptionYou = "*You*"
 ### Configuration ###
 
 # Obtain the working directory for the video files
@@ -80,7 +82,8 @@ Write-Output "Log directory is: " $logDirectory | Tee-Object -FilePath $logUpdat
 Write-Output "OpenAI-Whisper Model is: " $model | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Buffer in seconds.miliseconds is: " $buffer | Tee-Object -FilePath $logUpdated -Append
 Write-Output "No Speech Probablility cutoff (percent out of one) is: " $noSpeechProbability | Tee-Object -FilePath $logUpdated -Append
-Write-Output "Exceptions are: " $5MinutesRemaining | Tee-Object -FilePath $logUpdated -Append
+Write-Output "Exceptions are: " $exception5MinutesRemaining | Tee-Object -FilePath $logUpdated -Append
+Write-Output "Exceptions are: " $exceptionYou | Tee-Object -FilePath $logUpdated -Append
 # Verification logging
 $verificationLogUpdated = $logDirectory + $verificationLog
 Write-Output "Processing started: " $dateStarted | Tee-Object -FilePath $verificationLogUpdated -Append
@@ -138,10 +141,14 @@ foreach($file in $filesToProcess) {
             Write-Output "No Speech Probability: MATCH" | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
 
             # Sets Clip Start/End variables
-            if ($segment.text -like $5MinutesRemaining)
+            if ($segment.text -like $exception5MinutesRemaining)
             {
                 # Skipping due to question playing the 5 minute reminder
-                Write-Output "Skipping due to exception: " $5MinutesRemaining | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+                Write-Output "Skipping due to exception: " $exception5MinutesRemaining | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+            } elseif ($segment.text -like $exceptionYou)
+            {
+                # Skipping due to "You" in OpenAI - Whisper when there's not speech
+                Write-Output "Skipping due to exception: " $exceptionYou | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
             } elseif ($clipStart -eq "")
             {
                 $clipStart = $segment.start

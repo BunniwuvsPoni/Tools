@@ -147,7 +147,7 @@ foreach($file in $filesToProcess) {
                 Write-Output "Skipping due to exception: " $exception5MinutesRemaining | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
             } elseif ($segment.text -like $exceptionYou)
             {
-                # Skipping due to "You" in OpenAI - Whisper when there's not speech
+                # Skipping due to "You" in OpenAI - Whisper export when there's no speech
                 Write-Output "Skipping due to exception: " $exceptionYou | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
             } elseif ($clipStart -eq "")
             {

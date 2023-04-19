@@ -32,8 +32,6 @@ $noSpeechProbability = "0.8"
 # Note: No periods
 # Automatically played 5 minutes remaining notification
 $exception5MinutesRemaining = "*five minutes remaining*"
-# "You" filler text at the beginning when there's no speech
-$exceptionYou = "*You*"
 ### Configuration ###
 
 # Obtain the working directory for the video files
@@ -83,7 +81,6 @@ Write-Output "OpenAI-Whisper Model is: " $model | Tee-Object -FilePath $logUpdat
 Write-Output "Buffer in seconds.miliseconds is: " $buffer | Tee-Object -FilePath $logUpdated -Append
 Write-Output "No Speech Probablility cutoff (percent out of one) is: " $noSpeechProbability | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Exceptions are: " $exception5MinutesRemaining | Tee-Object -FilePath $logUpdated -Append
-Write-Output "Exceptions are: " $exceptionYou | Tee-Object -FilePath $logUpdated -Append
 # Verification logging
 $verificationLogUpdated = $logDirectory + $verificationLog
 Write-Output "Processing started: " $dateStarted | Tee-Object -FilePath $verificationLogUpdated -Append
@@ -145,10 +142,6 @@ foreach($file in $filesToProcess) {
             {
                 # Skipping due to question playing the 5 minute reminder
                 Write-Output "Skipping due to exception: " $exception5MinutesRemaining | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
-            } elseif ($segment.text -like $exceptionYou)
-            {
-                # Skipping due to "You" in OpenAI - Whisper export when there's no speech
-                Write-Output "Skipping due to exception: " $exceptionYou | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
             } elseif ($clipStart -eq "")
             {
                 $clipStart = $segment.start

@@ -5,4 +5,4 @@
 
 Run command:
 
-Get-CimInstance -Class Win32_UserProfile | Where-Object { $_.LocalPath.split(‘\’)[-1] -eq '<userprofile>' } | Remove-CimInstance
+Get-CimInstance -Class Win32_UserProfile | Where-Object { $_.LocalPath.split(‘\’)[-1] -eq '[userprofile]' } | Remove-CimInstance

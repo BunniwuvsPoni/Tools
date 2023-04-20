@@ -26,12 +26,14 @@ $language = "English"
 # Buffer configured in seconds in second.milisecond format
 $buffer = "5.0"
 # No Speech Probability cutoff
-$noSpeechProbability = "0.3"
+$noSpeechProbability = "0.5"
 # Exceptions
 # Note: Add the wildcard "*" to the beginning and end of the exception
 # Note: No periods
 # Automatically played 5 minutes remaining notification
 $exception5MinutesRemaining = "*five minutes remaining*"
+# OpenAI - Whisper " You" placeholder for no speech, no wildcard due to text being used very often in the English language
+$exceptionYou = " You"
 ### Configuration ###
 
 # Obtain the working directory for the video files
@@ -81,6 +83,7 @@ Write-Output "OpenAI-Whisper Model is: " $model | Tee-Object -FilePath $logUpdat
 Write-Output "Buffer in seconds.miliseconds is: " $buffer | Tee-Object -FilePath $logUpdated -Append
 Write-Output "No Speech Probablility cutoff (percent out of one) is: " $noSpeechProbability | Tee-Object -FilePath $logUpdated -Append
 Write-Output "Exceptions are: " $exception5MinutesRemaining | Tee-Object -FilePath $logUpdated -Append
+Write-Output "Exceptions are: " $exceptionYou | Tee-Object -FilePath $logUpdated -Append
 # Verification logging
 $verificationLogUpdated = $logDirectory + $verificationLog
 Write-Output "Processing started: " $dateStarted | Tee-Object -FilePath $verificationLogUpdated -Append
@@ -142,6 +145,10 @@ foreach($file in $filesToProcess) {
             {
                 # Skipping due to question playing the 5 minute reminder
                 Write-Output "Skipping due to exception: " $exception5MinutesRemaining | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
+            } elseif ($segment.text -like $exceptionYou)
+            {
+                # Skipping due to OpenAI - Whisper " You" placeholder for no speech
+                Write-Output "Skipping due to exception: " $exceptionYou | Tee-Object -FilePath $OpenAIWhisperJSONToTXT -Append
             } elseif ($clipStart -eq "")
             {
                 $clipStart = $segment.start

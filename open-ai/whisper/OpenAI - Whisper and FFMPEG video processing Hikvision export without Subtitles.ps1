@@ -26,7 +26,7 @@ $language = "English"
 # Buffer configured in seconds in second.milisecond format
 $buffer = "5.0"
 # No Speech Probability cutoff
-$noSpeechProbability = "0.5"
+$noSpeechProbability = "0.75"
 # Exceptions
 # Note: Add the wildcard "*" to the beginning and end of the exception
 # Note: No periods

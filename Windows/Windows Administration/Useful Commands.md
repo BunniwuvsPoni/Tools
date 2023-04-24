@@ -49,3 +49,7 @@
    - For your own profile
  - Shell:Common Startup
    - For all profiles
+ 
+ ## rdpsign
+ - rdpsign.exe /sha256 ("Thumbprint of Self-Signed SSL Certificate").ToUpper().Replace(" ","") '.\Remote Desktop.rdp'
+ https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/rdpsign

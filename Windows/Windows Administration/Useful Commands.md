@@ -25,7 +25,7 @@
 
 ## Find logged on user on a remote computer
 *  Get-WmiObject –ComputerName (Remote Computer Name) –Class Win32_ComputerSystem | Select-Object UserName
- 
+
 ## Battery Report
 * powercfg /batteryreport
 
@@ -43,6 +43,10 @@
  
 ## Get remote computer Name and Boot Time
  * .\systeminfo.exe /s (Remote Computer Name) | findstr /C:"Host Name:" /C:"Boot Time:"
+
+## Remote System Uptime
+* systeminfo.exe /s (host) | find "System Boot Time"
+ 
  
 ## Startup Applications
  - Shell:Startup

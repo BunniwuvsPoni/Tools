@@ -1,10 +1,8 @@
 # Prevents screen lock until the specified end time at the end of the current day
 # Launch using a shortcut with the following parameters: [C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File "C:\(directory)\Prevent screen lock - Requires user inputs.ps1"]
 
-# Required end time
-param(
-    [Parameter(Mandatory=$true)][string]$endInput
-    )
+# Request end time
+$endInput = Read-Host -Prompt "Please specify the end time in the following 24 hour format: (HH:MM). i.e. for 5pm your input should be 17:00"
 
 # Validation of end time
 if ($endInput -match "[0-9][0-9]:[0-9][0-9]") {
@@ -23,7 +21,7 @@ if ($endInput -match "[0-9][0-9]:[0-9][0-9]") {
     Exit
     }
 } else {
-    echo "Time must be specified in HH:SS format, closing function."
+    echo "Time must be specified in HH:MM format, closing function."
     Read-Host -Prompt "Press Enter to exit"
     Exit
 }

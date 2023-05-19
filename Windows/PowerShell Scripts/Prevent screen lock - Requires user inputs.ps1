@@ -2,7 +2,7 @@
 # Launch using a shortcut with the following parameters: [C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File "C:\(directory)\Prevent screen lock - Requires user inputs.ps1"]
 
 # Request end time
-$endInput = Read-Host -Prompt "Please specify the end time in the following 24 hour format: (HH:MM). i.e. for 5pm your input should be 17:00"
+$endInput = Read-Host -Prompt "Please specify the end time in the following 24 hour format: (HH:MM). i.e. for 5:15pm your input should be '17:15'"
 
 # Validation of end time
 if ($endInput -match "[0-9][0-9]:[0-9][0-9]") {

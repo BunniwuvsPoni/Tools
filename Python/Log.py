@@ -11,8 +11,6 @@ logging.basicConfig(filename=path,
                     format='%(asctime)s %(message)s',
                     filemode="w")
 
-
-
 logging.debug("Debug: 10")
 logging.info("Info: 20")
 logging.warning("Warning: 30")

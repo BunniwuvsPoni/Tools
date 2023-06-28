@@ -7,4 +7,6 @@ https://pyinstaller.org/en/stable/
 pip install -U pyinstaller
 
 ## Run PyInstaller
-python.exe -m PyInstaller [.\Script.py]
+python.exe -m PyInstaller -F [.\Script.py]
+- The "-F" switch outputs a single executable in the "dist" folder
+- The "-m" specifies that the "PyInstaller" *module* is to be used

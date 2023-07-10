@@ -16,3 +16,6 @@
 6. Install the package: sudo dpkg -i unifi_sysvinit_all.deb
 7. Restart the OS: sudo shutdown -r now
 8. Remove Snapshot if all looks well
+
+## Option #3
+https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Update-Script-or-UniFi-Lets-Encrypt-or-UniFi-Easy-Encrypt-/ccbc7530-dd61-40a7-82ec-22b17f027776

@@ -23,6 +23,9 @@
 *  How-To disable local Administrator account
     * net user Administrator /active:no
 
+## Get the device's serial number
+wmic bios get serialnumber
+
 ## Find logged on user on a remote computer
 *  Get-WmiObject –ComputerName (Remote Computer Name) –Class Win32_ComputerSystem | Select-Object UserName
 

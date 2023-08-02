@@ -14,4 +14,5 @@ pip install --upgrade (package)
 
 ## Delete all installed packages
 pip freeze > requirements.txt
+
 pip uninstall -r requirements.txt -y

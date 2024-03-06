@@ -26,7 +26,8 @@ deb http://security.debian.org/debian-security bookworm-security main contrib![i
 - In SSH/Shell, verify no 401 Unauthorized errors. Run: apt-get update
 
 ## Configure SMTP
-- Install packages
+- Connect to the Proxmox host via SSH/Shell
+-  Install packages
 ```
 apt update
 apt install -y libsasl2-modules mailutils

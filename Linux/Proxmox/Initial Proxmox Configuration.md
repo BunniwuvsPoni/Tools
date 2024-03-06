@@ -24,3 +24,89 @@ deb http://security.debian.org/debian-security bookworm-security main contrib![i
 
 ```
 - In SSH/Shell, verify no 401 Unauthorized errors. Run: apt-get update
+
+## Configure SMTP
+- Install packages
+```
+apt update
+apt install -y libsasl2-modules mailutils
+```
+- Configure credentials (note: must use app password)
+- nano /etc/postfix/sasl_passwd
+```
+smtp.gmail.com example@gmail.com:password
+```
+- Update permissions
+```
+chmod 600 /etc/postfix/sasl_passwd
+```
+- Generate password database file
+```
+postmap hash:/etc/postfix/sasl_passwd
+```
+- Postfix configuration
+- nano /etc/postfix/main.cf
+- Comment out "#": relayhost & mydestination
+- Add to the bottom of the file:
+```
+relayhost = smtp.gmail.com:587
+smtp_use_tls = yes
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_tls_CApath = /etc/ssl/certs
+smtp_sasl_security_options = noanonymous, noplaintext
+smtp_sasl_tls_security_options = noanonymous 
+smtp_tls_session_cache_database = btree:/var/lib/postfix/smtp_tls_session_cache
+smtp_tls_session_cache_timeout = 3600s
+```
+- Reload Postfix
+```
+postfix reload
+```
+- Test sending emails
+- Test email:
+```
+echo "Test Email" | mail -s "Test Subject" example@gmail.com
+```
+- Proxmox relay:
+```
+echo "Test email from Proxmox: $(hostname)" | /usr/bin/proxmox-mail-forward
+```
+- Optional: Update email header
+- Install packages
+```
+apt update
+apt install postfix-pcre
+```
+- Configuration file
+- nano /etc/postfix/smtp_header_checks
+```
+/^From:.*/ REPLACE From: proxmox-alert <noreply@gmail.com>
+```
+- Create database file
+```
+postmap hash:/etc/postfix/smtp_header_check
+```
+- Check the contents of the database file
+```
+cat /etc/postfix/smtp_header_checks.db
+```
+- Update Postfix configuration
+- nano /etc/postfix/main.cf
+- Add to the bottom of the file:
+```
+smtp_header_checks = pcre:/etc/postfix/smtp_header_checks
+```
+- Reload Postfix
+```
+postfix reload
+```
+- Test sending emails
+- Test email:
+```
+echo "Test Email" | mail -s "Test Subject" example@gmail.com
+```
+- Proxmox relay:
+```
+echo "Test email from Proxmox: $(hostname)" | /usr/bin/proxmox-mail-forward
+```

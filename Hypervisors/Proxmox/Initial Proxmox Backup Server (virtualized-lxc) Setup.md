@@ -40,6 +40,71 @@ sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/
 - Username: root
 - Password: (password of the root user on the Debian lxc instance)
 
+## Proxmox Virtual Environment and Proxmox Backup Server (LXC-Unprivileged) Integration
+- Update PVE and PBS LXC:
+```
+apt update && apt full-upgrade
+```
+- Create ZFS on PVE Host running PBS LXC
+- Change ownership of PVE Host folder to 1000:1000
+```
+chown 1000:1000 /(PVE zfs pool)
+```
+- Confirm ownership changes
+```
+ls -l
+```
+- Add in PVE Host root:1000:1 to /etc/subuid and /etc/subgid
+```
+echo "root:1000:1" >> /etc/subuid
+echo "root:1000:1" >> /etc/subgid
+```
+- Confirm addition
+```
+cat /etc/subuid
+cat /etc/subgid
+```
+- Add in PVE Host mountpoint to LXC
+- nano /etc/pve/lxc/(PBS LXC).conf
+- Append to the end of the file:
+```
+mp0: /(PVE zfs pool)/,mp=/mnt/(PBS mountpoint)
+```
+- Add in PVE Host LXC id mapping, only maps uid/gid 1000: nano /etc/pve/lxc/(PBS LXC).conf
+```
+lxc.idmap: u 0 100000 1000
+lxc.idmap: g 0 100000 1000
+lxc.idmap: u 1000 1000 1
+lxc.idmap: g 1000 1000 1
+lxc.idmap: u 1001 101001 64535
+lxc.idmap: g 1001 101001 64535
+```
+- Add in PBS LXC user "pbs" with uid/gid 1000
+```
+useradd -u 1000 -m -s /usr/bin/bash pbs
+```
+- Confirm user and group creation
+```
+cat /etc/passwd
+cat /etc/group
+```
+- Reboot PBS LXC
+- Add in PBS LXC Datastore linked to the mountpoint created in previous step
+	- Retention: Prune Options
+ 		- Keep Last: 31 Days
+   		- [https://pbs.proxmox.com/docs/prune-simulator/]
+- Create new user in PBS LXC
+- In PBS LXC, give the new user admin permissions to the Datastore
+- In PBS LXC, under the Dashboard, get the Fingerprint
+- In PVE, add the PBS under Datacenter -> Storage
+- PVE, create backup under Datacenter -> Backup
+	- Storage: PBS Storage
+ 	- Daily @ 3am
+  	- Exclude selected VM: PBS LXC
+  		- What's the point of backing up the PBS when you need the PBS to perform a restore?
+  	- Mode: Snapshot
+
+
 ## Notes
 - LXC: Read whole container -> Low data storage requirements
 - VM: Can take advantage of de-duplication -> Large data storage requirements

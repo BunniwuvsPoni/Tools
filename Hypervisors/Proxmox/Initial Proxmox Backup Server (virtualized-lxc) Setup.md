@@ -93,6 +93,7 @@ cat /etc/group
 	- Retention: Prune Options
  		- Keep Last: 31 Days
    		- [https://pbs.proxmox.com/docs/prune-simulator/]
+	 	- Pruning configured at PBS LXC rather than PVE Storage/Backup Job level…
 - Create new user in PBS LXC
 - In PBS LXC, give the new user admin permissions to the Datastore
 - In PBS LXC, under the Dashboard, get the Fingerprint

@@ -39,3 +39,7 @@ sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/
 - Access the PBS @ https://[ip-or-dns-name]:8007
 - Username: root
 - Password: (password of the root user on the Debian lxc instance)
+
+## Notes
+- LXC: Read whole container -> Low data storage requirements
+- VM: Can take advantage of de-duplication -> Large data storage requirements

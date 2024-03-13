@@ -1,11 +1,7 @@
 #  Initial Proxmox Backup Server (virtualized-lxc) Setup
 ## Install Proxmox Backup Server
 - Connect to the Promox Host via SSH/Shell and subsequently the lxc for the PBS
-- Disable the enterprise repo
-```
-nano /etc/apt/sources.list.d/pbs-enterprise.list
-```
--  Add the Proxmox Backup Server no-subscription repo (not for PROD systems)
+- Add the Proxmox Backup Server no-subscription repo (not for PROD systems)
 - nano /etc/apt/sources.list
 ```
 # For Debian 12 (bookworm)
@@ -31,6 +27,10 @@ apt update
 - Install Proxmox Backup Server:
 ```
 apt install proxmox-backup-server
+```
+- Disable the enterprise repo
+```
+nano /etc/apt/sources.list.d/pbs-enterprise.list
 ```
 - Remove the subscription message:
 ```

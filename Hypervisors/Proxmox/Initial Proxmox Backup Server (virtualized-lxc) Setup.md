@@ -45,7 +45,7 @@ sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/
 ```
 apt update && apt full-upgrade
 ```
-- Optional: Create ZFS on PVE Host running PBS LXC
+- Create a pbs-backup folder in /rpool/ OR Create ZFS on PVE Host running PBS LXC
 - Change ownership of PVE Host folder to 1000:1000
 ```
 chown 1000:1000 /(PVE zfs pool)

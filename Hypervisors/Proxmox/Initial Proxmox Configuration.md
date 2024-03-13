@@ -105,7 +105,7 @@ apt install postfix-pcre
 - Configuration file
 - nano /etc/postfix/smtp_header_checks
 ```
-/^From:.*/ REPLACE From: proxmox-alert <noreply@gmail.com>
+/^From:.*/ REPLACE From: proxmox-alert_[hostname]<noreply@gmail.com>
 ```
 - Create database file
 ```

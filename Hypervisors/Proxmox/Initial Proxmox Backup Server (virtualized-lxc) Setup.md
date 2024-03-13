@@ -83,6 +83,10 @@ lxc.idmap: g 1001 101001 64535
 ```
 useradd -u 1000 -m -s /usr/bin/bash pbs
 ```
+```
+-m creates user's home directory
+-s name of the user's login shell
+```
 - Confirm user and group creation
 ```
 cat /etc/passwd

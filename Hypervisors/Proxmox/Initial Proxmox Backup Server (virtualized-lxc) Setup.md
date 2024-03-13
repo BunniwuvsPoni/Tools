@@ -107,7 +107,7 @@ cat /etc/group
    	 	- Skip Verified
    	  	- Re-Verify after 30 days
 - Create new user in PBS LXC
-- In PBS LXC, give the new user Datastore.Backup permissions to the Datastore
+- In PBS LXC, give the new user admin permissions to the Datastore
 - In PBS LXC, under the Dashboard, get the Fingerprint
 - In PVE, add the PBS under Datacenter -> Storage
 - PVE, create backup under Datacenter -> Backup

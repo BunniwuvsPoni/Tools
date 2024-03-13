@@ -27,6 +27,10 @@ On the PVE Host, the display name only updates after a 2nd reboot. 1st reboot up
 ```
 sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service
 ```
+- Verify
+```
+grep -n -B 1 'No valid sub' proxmoxlib.js
+```
 
 ## Update to use no-subscription repo (not for PROD systems)
 - Proxmox -> Host -> Updates -> Repositories

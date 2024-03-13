@@ -2,6 +2,22 @@
 
 1. Setup your linux instance
 2. Install iPerf with dependencies (apt-get -y install gdebi iperf3)
+3. Select the daemon option (run on boot)
+
+---
+
+In a different client use iPerf to test network speeds
+
+.\iperf3.exe -c (IP) -R
+
+-R to reverse connection
+
+---
+---
+---
+
+Archived legacy steps
+
 3. Create the following file (/etc/systemd/system/iperf3.service)
 
 ---
@@ -24,12 +40,3 @@ WantedBy=multi-user.target
 
 4. Enable the service (sudo systemctl enable iperf3)
 5. Start the service (sudo service iperf3 start)
-
-
----
-
-In a different client use iPerf to test network speeds
-
-.\iperf3.exe -c (IP) -R
-
--R to reverse connection

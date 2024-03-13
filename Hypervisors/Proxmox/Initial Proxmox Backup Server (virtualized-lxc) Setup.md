@@ -79,9 +79,9 @@ lxc.idmap: g 1000 1000 1
 lxc.idmap: u 1001 101001 64535
 lxc.idmap: g 1001 101001 64535
 ```
-- Add in PBS LXC user "pbs" with uid/gid 1000
+- Add in PBS LXC user "pbs-[hostname]" with uid/gid 1000
 ```
-useradd -u 1000 -m -s /usr/bin/bash pbs
+useradd -u 1000 -m -s /usr/bin/bash pbs-[hostname]
 ```
 ```
 -m creates user's home directory

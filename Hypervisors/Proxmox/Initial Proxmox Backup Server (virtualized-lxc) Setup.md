@@ -36,6 +36,10 @@ nano /etc/apt/sources.list.d/pbs-enterprise.list
 ```
 sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart proxmox-backup-proxy.service
 ```
+- Verify
+```
+grep -n -B 1 'No valid sub' proxmoxlib.js
+```
 - Access the PBS @ https://[ip-or-dns-name]:8007
 - Username: root
 - Password: (password of the root user on the Debian lxc instance)

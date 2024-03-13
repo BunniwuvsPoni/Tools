@@ -14,8 +14,8 @@ iface vmbr0 inet dhcp
 ```
 if ([ $reason = "BOUND" ] || [ $reason = "RENEW" ])
 then
-  sed -i "s/^.*\spve-01.localdomain\s.*$/${new_ip_address} pve-01.localdomain pve-01/" /etc/hosts
-Fi
+ sed -i "s/^.*\spve-01.localdomain\s.*$/${new_ip_address} pve-01.localdomain pve-01/" /etc/hosts
+fi
 ```
 ```
 Note:

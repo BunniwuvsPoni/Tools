@@ -1,3 +1,3 @@
 #  Proxmox Install Notes
 - Use the graphical installer
-- Storage: zfs (RAID1)
+- Storage: zfs (RAID10 if possible, otherwise RAID1)

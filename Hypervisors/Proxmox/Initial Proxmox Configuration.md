@@ -1,4 +1,27 @@
 #  Initial Proxmox configuration
+
+## Enable DHCP (NOT FOR PRODUCTION HOSTS)
+- nano /etc/network/interfaces
+```
+auto vmbr0
+iface vmbr0 inet dhcp
+	bridge-ports eno1
+        bridge-stp off
+        bridge-fd 0
+```
+- Get the hostname: cat /etc/hosts
+- Create the DHCP hostname update script: nano /etc/dhcp/dhclient-exit-hooks.d/update-etc-hosts
+```
+if ([ $reason = "BOUND" ] || [ $reason = "RENEW" ])
+then
+ sed -i "s/^.*\spve-01.localdomain\s.*$/${new_ip_address} pve-01.localdomain pve-01/" /etc/hosts
+Fi
+```
+```
+Note:
+On the PVE Host, the display name only updates after a 2nd reboot. 1st reboot updates the name, 2nd reboot shows the newly updated name, timing/order of operations issue…
+```
+
 ##  Remove subscription message:
 - SSH into the Proxmox Host or use the Host Shell (access Proxmox @ https://[ip-or-dns-name]:8006)
 ```

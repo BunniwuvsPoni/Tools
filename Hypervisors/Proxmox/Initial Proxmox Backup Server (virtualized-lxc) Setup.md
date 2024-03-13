@@ -98,6 +98,10 @@ cat /etc/group
  		- Keep Last: 365 Days
    		- [https://pbs.proxmox.com/docs/prune-simulator/]
 	 	- Pruning configured at PBS LXC rather than PVE Storage/Backup Job level…
+   	- Verify Jobs
+   		- Daily @ 5am
+   	 	- Skip Verified
+   	  	- Re-Verify after 30 days
 - Create new user in PBS LXC
 - In PBS LXC, give the new user admin permissions to the Datastore
 - In PBS LXC, under the Dashboard, get the Fingerprint

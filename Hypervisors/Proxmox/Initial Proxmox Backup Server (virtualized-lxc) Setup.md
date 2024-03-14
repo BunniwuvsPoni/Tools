@@ -98,13 +98,15 @@ cat /etc/group
 ```
 - Reboot PBS LXC
 - Add in PBS LXC Datastore linked to the mountpoint created in previous step
-	- Retention: Prune Options
- 		- Daily @ 7am
+	- Prune (Mark for deletion)
+ 		- Daily @ 5am
    		- Keep Last: 365 Days
    		- [https://pbs.proxmox.com/docs/prune-simulator/]
 	 	- Pruning configured at PBS LXC rather than PVE Storage/Backup Job level…
+   	- Garbage Collection (Deletion of unused backups)
+   		- Daily @ 6am
    	- Verify Jobs
-   		- Daily @ 5am
+   		- Daily @ 4am
    	 	- Skip Verified
    	  	- Re-Verify after 30 days
 - Create new user in PBS LXC
@@ -113,7 +115,7 @@ cat /etc/group
 - In PVE, add the PBS under Datacenter -> Storage
 - PVE, create backup under Datacenter -> Backup
 	- Storage: PBS Storage
- 	- Daily @ 3am
+ 	- Daily @ 2am
   	- Exclude selected VM: PBS LXC
   		- What's the point of backing up the PBS when you need the PBS to perform a restore?
   	- Mode: Snapshot

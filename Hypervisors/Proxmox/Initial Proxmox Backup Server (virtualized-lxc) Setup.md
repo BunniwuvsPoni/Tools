@@ -40,14 +40,6 @@ sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/
 ```
 grep -n -B 1 'No valid sub' proxmoxlib.js
 ```
-- Configure the timezone
-```
-timedatectl set-timezone "America/Toronto"
-```
-- Verify
-```
-timedatectl
-```
 - Access the PBS @ https://[ip-or-dns-name]:8007
 - Username: root
 - Password: (password of the root user on the Debian lxc instance)

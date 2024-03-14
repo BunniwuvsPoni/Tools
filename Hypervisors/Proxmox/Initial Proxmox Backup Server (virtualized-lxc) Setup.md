@@ -99,7 +99,8 @@ cat /etc/group
 - Reboot PBS LXC
 - Add in PBS LXC Datastore linked to the mountpoint created in previous step
 	- Retention: Prune Options
- 		- Keep Last: 365 Days
+ 		- Daily @ 7am
+   		- Keep Last: 365 Days
    		- [https://pbs.proxmox.com/docs/prune-simulator/]
 	 	- Pruning configured at PBS LXC rather than PVE Storage/Backup Job level…
    	- Verify Jobs

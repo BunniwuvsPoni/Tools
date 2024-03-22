@@ -7,3 +7,7 @@
 6. Install (user mode) and configure VS Code (enable Remote Tunnel Access)
 7. Install Git
 8. Install Python (admin, add to PATH, disable length limit)
+9. Configure the developmental workspace
+    - https://vscode.dev/
+    - Clone repository
+    - Enable venv (Ctrl + Shift + P, Python: Create Environment...)

@@ -4,6 +4,6 @@
 3. Update Windows 11
 4. Add Ublock Origin Lite to Microsoft Edge
 5. Install and configure Team Viewer
-6. Install and configure VS Code (enable Remote Tunnel Access)
+6. Install (user mode) and configure VS Code (enable Remote Tunnel Access)
 7. Install Git
-8. Install Python
+8. Install Python (admin, add to PATH, disable length limit)

@@ -5,14 +5,20 @@
 4. Add Ublock Origin Lite to Microsoft Edge
 5. Install and configure Team Viewer
 6. Install (user mode) and configure VS Code (enable Remote Tunnel Access)
-7. Install Git
+7. Enable Windows 11 auto login
+    - Regedit
+        - HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+        - DWORD (32-bit) Value -> AutoAdminLogon: 1
+        - String Value -> DefaultUserName
+        - String Value -> DefaultPassword
+9. Install Git
     - git config --global user.name "John Doe"
     - git config --global user.email johndoe@example.com
-9. Install Python (admin, add to PATH, disable length limit)
-10. Configure the developmental workspace
+10. Install Python (admin, add to PATH, disable length limit)
+11. Configure the developmental workspace
     - https://vscode.dev/
     - Clone repository
     - Enable venv (Ctrl + Shift + P, Python: Create Environment...)
-11. Install pyinstaller
+12. Install pyinstaller
     - pip install -U pyinstaller
         - pyinstaller --onefile (script)

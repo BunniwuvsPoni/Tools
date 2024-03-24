@@ -5,12 +5,13 @@
 4. Add Ublock Origin Lite to Microsoft Edge
 5. Install and configure Team Viewer
 6. Install (user mode) and configure VS Code (enable Remote Tunnel Access)
-7. Enable Windows 11 auto login
+7. Enable Windows 11 auto login (to start Remote Tunnel Access after computer Stops/Shutdown, it won't restart the service like with a Reboot...)
     - Regedit
         - HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
         - DWORD (32-bit) Value -> AutoAdminLogon: 1
         - String Value -> DefaultUserName
         - String Value -> DefaultPassword
+    - Change screen saver: 15 mins + On resume, display logon screen
 9. Install Git
     - git config --global user.name "John Doe"
     - git config --global user.email johndoe@example.com

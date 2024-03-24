@@ -13,3 +13,5 @@
     - https://vscode.dev/
     - Clone repository
     - Enable venv (Ctrl + Shift + P, Python: Create Environment...)
+11. Install pyinstaller
+    - pip install -U pyinstaller

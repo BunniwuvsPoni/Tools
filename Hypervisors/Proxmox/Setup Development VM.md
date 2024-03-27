@@ -4,7 +4,7 @@
 3. Update Windows 11
 4. Add Ublock Origin Lite to Microsoft Edge
 5. Install and configure Team Viewer
-6. Install (user mode) and configure VS Code (enable Remote Tunnel Access)
+6. Install (user mode) and configure VS Code (enable Remote Tunnel Access + Cloud Changes)
 7. Enable Windows 11 auto login (to start Remote Tunnel Access after computer Stops/Shutdown, it won't restart the service like with a Reboot...)
     - Regedit
         - HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon

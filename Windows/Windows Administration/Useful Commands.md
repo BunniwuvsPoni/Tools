@@ -49,7 +49,9 @@ wmic bios get serialnumber
 
 ## Remote System Uptime
 * systeminfo.exe /s (host) | find "System Boot Time"
- 
+
+## Get system environment variables
+* gci env:
  
 ## Startup Applications
  - Shell:Startup

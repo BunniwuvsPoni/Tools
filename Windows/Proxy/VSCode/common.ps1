@@ -4,7 +4,7 @@ $password = Read-Host -Prompt $message -AsSecureString
 $MYCPW=[Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($password))
 
 # Create proxy string
-$proxy='http://'+ $env:username + ':' + $MYCPW +'@proxy.domain.com:8080'
+$proxy='http://'+ $env:username + ':' + $MYCPW +'@proxy.domain.tld:8080'
 
 # Set environmental variable with proxy
 $env:HTTPS_PROXY=$proxy

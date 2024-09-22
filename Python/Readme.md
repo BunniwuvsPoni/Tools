@@ -1,6 +1,9 @@
 # Useful information (Windows)
 Note: Run with administrative privileges for all users, otherwise changes will only be refected for the currently logged in user.
 
+## Generate requirements.txt
+pip freeze > requirements.txt
+
 ## List all packages
 pip list
 

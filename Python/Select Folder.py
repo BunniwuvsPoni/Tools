@@ -1,15 +1,18 @@
 # Date: 2024/11/17
 # This script is intended to: Select a Directory from the local system
 
-import tkinter
-from tkinter import filedialog
+def select_directory():
+    import tkinter
+    from tkinter import filedialog
 
-root = tkinter.Tk()
-root.withdraw()
+    root = tkinter.Tk()
+    root.withdraw()
 
-folder_path = filedialog.askdirectory()
+    folder_path = filedialog.askdirectory()
 
-if not folder_path:
-    print ("Null or empty directory.")
-else:
-    print (folder_path)
+    if not folder_path:
+        print ("Null or empty directory.")
+    else:
+        print (folder_path)
+
+    return folder_path

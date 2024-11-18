@@ -28,7 +28,7 @@ def log(logfilepath, logmessage):
     
     logging.debug(logmessage)
 
-# Function: Current TIme
+# Function: Current Time
 def time():
     from timeit import default_timer
 

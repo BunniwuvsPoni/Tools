@@ -1,4 +1,4 @@
-# Date: 2024/11/17
+# Date last updated: 2024/11/17
 
 # This script is intended to: Select a Directory from the local system
 def select_directory():

@@ -1,5 +1,5 @@
-# Date: 2023/05/25
-# This script is intended to: Select a Folder from the system
+# Date: 2024/11/17
+# This script is intended to: Select a Directory from the local system
 
 import tkinter
 from tkinter import filedialog
@@ -9,4 +9,7 @@ root.withdraw()
 
 folder_path = filedialog.askdirectory()
 
-print (folder_path)
+if not folder_path:
+    print ("Null or empty directory.")
+else:
+    print (folder_path)

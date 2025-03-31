@@ -2,8 +2,8 @@
 # Launch using a shortcut with the following parameters: [C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File "C:\(directory)\Prevent screen lock.ps1"]
 
 # Configuration
-$start = Get-Date '07:00'
-$end = Get-Date '17:00'
+$start = Get-Date '07:30'
+$end = Get-Date '16:00'
 $frequency = 30
 
 # Initialize Wscript.Shell

@@ -4,6 +4,9 @@ Note: Run with administrative privileges for all users, otherwise changes will o
 ## Generate requirements.txt
 pip freeze > requirements.txt
 
+## Install from requirements.txt
+pip install -r requirements.txt
+
 ## List all packages
 pip list
 

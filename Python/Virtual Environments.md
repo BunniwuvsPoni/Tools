@@ -12,7 +12,7 @@ https://code.visualstudio.com/docs/python/environments
 ### Create the virtual environment
 - python.exe -m venv .venv
 ### Activate the virtual environment
-- .\.venv\Scripts\Activate.ps1
+- .\\.venv\Scripts\Activate.ps1
   - If required, set execution policy to RemoteSigned
       - Set-ExecutionPolicy RemoteSigned
       - Get-ExecutionPolicy
